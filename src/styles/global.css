@@ -1,22 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Brand Palette */
-  --color-forest:       #2E5233;
-  --color-forest-dark:  #173b1e;
-  --color-stone-white:  #f9f9f8;
-  --color-stone-light:  #e7e8e7;
-  --color-stone-mid:    #c8cac8;
-  --color-stone-text:   #3d3f3d;
+  /* ── Brand Palette ───────────────────────────────────── */
+  --color-forest:        #2A5C34;   /* primary accent */
+  --color-forest-deep:   #1A3D22;   /* dark variant */
+  --color-forest-light:  #3D7048;   /* hover variant */
+  --color-ink:           #18191A;   /* near-black body text */
+  --color-ink-muted:     #5A5D5A;   /* secondary text */
+  --color-ink-faint:     #9B9D9B;   /* captions / meta */
+  --color-surface:       #FAFAF7;   /* page background */
+  --color-surface-alt:   #F3F4F1;   /* card / section bg */
+  --color-border:        #E4E5E2;   /* default borders */
+  --color-border-strong: #C8CAC5;   /* emphasized borders */
 
-  /* Typography */
+  /* ── Typography ──────────────────────────────────────── */
   --font-serif:  'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-sans:   ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  --font-sans:   'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-/* ─── Base ─────────────────────────────────────────────────── */
+/* ─── Reset & Base ──────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -27,14 +31,16 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 body {
-  background-color: #f9f9f8;
-  color: #3d3f3d;
-  font-family: var(--font-sans);
+  background-color: #FAFAF7;
+  color: #18191A;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.65;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -45,39 +51,148 @@ img {
   height: auto;
 }
 
-/* ─── Prose overrides (typography plugin) ───────────────────── */
+/* ─── Selection ─────────────────────────────────────────── */
+::selection {
+  background: #2A5C34;
+  color: #FAFAF7;
+}
+
+/* ─── Prose overrides ───────────────────────────────────── */
 .prose {
-  --tw-prose-body:          #3d3f3d;
-  --tw-prose-headings:      #173b1e;
-  --tw-prose-links:         #2E5233;
-  --tw-prose-bold:          #173b1e;
-  --tw-prose-hr:            #e7e8e7;
-  --tw-prose-quotes:        #2E5233;
-  --tw-prose-quote-borders: #2E5233;
-  --tw-prose-captions:      #c8cac8;
-  max-width: 72ch;
+  --tw-prose-body:          #2A2B2A;
+  --tw-prose-headings:      #1A3D22;
+  --tw-prose-links:         #2A5C34;
+  --tw-prose-bold:          #18191A;
+  --tw-prose-hr:            #E4E5E2;
+  --tw-prose-quotes:        #2A5C34;
+  --tw-prose-quote-borders: #2A5C34;
+  --tw-prose-captions:      #9B9D9B;
+  max-width: 68ch;
 }
 
-/* ─── Focus ring ────────────────────────────────────────────── */
+/* ─── Focus ring ────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #2E5233;
+  outline: 2px solid #2A5C34;
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* ─── Scrollbar (subtle) ────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f9f9f8; }
-::-webkit-scrollbar-thumb { background: #e7e8e7; border-radius: 3px; }
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #FAFAF7; }
+::-webkit-scrollbar-thumb  { background: #E4E5E2; border-radius: 3px; }
 
-/* ─── Utility: sr-only ──────────────────────────────────────── */
+/* ─── Utility ───────────────────────────────────────────── */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
 }
+
+/* ─── Eyebrow label ─────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #2A5C34;
+}
+
+/* ─── Section divider ───────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid #E4E5E2;
+  margin: 0;
+}
+
+/* ─── Card hover transition ─────────────────────────────── */
+.card-hover {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  border-color: #2A5C34 !important;
+  box-shadow: 0 4px 24px rgba(42,92,52,0.08);
+}
+
+/* ─── Button base ───────────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #FAFAF7;
+  background-color: #2A5C34;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover { background-color: #1A3D22; }
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #2A5C34;
+  background-color: transparent;
+  border: 1.5px solid #2A5C34;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.btn-outline:hover {
+  background-color: #2A5C34;
+  color: #FAFAF7;
+}
+
+/* ─── Article body typography ───────────────────────────── */
+.article-body {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: #2A2B2A;
+}
+.article-body h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #1A3D22;
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.article-body h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1A3D22;
+  margin-top: 2.25rem;
+  margin-bottom: 0.6rem;
+}
+.article-body p { margin-bottom: 1.6rem; }
+.article-body blockquote {
+  border-left: 3px solid #2A5C34;
+  padding: 0.25rem 0 0.25rem 1.375rem;
+  margin: 2.25rem 0;
+  font-style: italic;
+  color: #2A5C34;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+.article-body a {
+  color: #2A5C34;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(42,92,52,0.4);
+}
+.article-body a:hover { text-decoration-color: #2A5C34; }
+.article-body ul,
+.article-body ol  { padding-left: 1.5rem; margin-bottom: 1.6rem; }
+.article-body li  { margin-bottom: 0.5rem; }
+.article-body hr  { border: none; border-top: 1px solid #E4E5E2; margin: 2.75rem 0; }
+.article-body img { border-radius: 4px; margin: 2rem 0; }

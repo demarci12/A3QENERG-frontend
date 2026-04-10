@@ -2,26 +2,18 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/about-us', label: 'About Us' },
-  { href: '/articles', label: 'Articles' },
-  { href: '/contact', label: 'Contact Us' },
-];
-
-const LANGUAGES = [
-  { code: 'en', label: 'EN', title: 'English' },
-  { code: 'ro', label: 'RO', title: 'Romanian' },
-  { code: 'hu', label: 'HU', title: 'Hungarian' },
+  { href: '/about-us',  label: 'About' },
+  { href: '/articles',  label: 'Articles' },
+  { href: '/services',  label: 'Work With Me' },
+  { href: '/contact',   label: 'Contact' },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLang, setActiveLang] = useState('en');
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -32,8 +24,7 @@ export default function Header() {
     return () => window.removeEventListener('resize', close);
   }, []);
 
-  const currentPath =
-    typeof window !== 'undefined' ? window.location.pathname : '';
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
   const isActive = (href) => {
     if (href === '/') return currentPath === '/';
@@ -46,39 +37,60 @@ export default function Header() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        backgroundColor: scrolled ? 'rgba(249,249,248,0.97)' : '#f9f9f8',
-        borderBottom: '1px solid #e7e8e7',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        transition: 'background-color 0.3s, box-shadow 0.3s',
-        boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,0.06)' : 'none',
+        backgroundColor: scrolled ? 'rgba(250,250,247,0.96)' : '#FAFAF7',
+        borderBottom: '1px solid #E4E5E2',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        transition: 'box-shadow 0.3s',
+        boxShadow: scrolled ? '0 1px 16px rgba(0,0,0,0.05)' : 'none',
       }}
     >
       <div
         style={{
-          maxWidth: '1200px',
+          maxWidth: '1160px',
           margin: '0 auto',
           padding: '0 1.5rem',
-          height: '64px',
+          height: '62px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '1rem',
+          gap: '1.5rem',
         }}
       >
-        {/* Brand wordmark */}
+        {/* Wordmark */}
         <a
           href="/"
           style={{
-            fontFamily: "'Newsreader', Georgia, serif",
-            fontSize: '1.375rem',
-            fontWeight: 700,
-            color: '#173b1e',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1px',
             textDecoration: 'none',
-            letterSpacing: '0.05em',
             flexShrink: 0,
           }}
         >
-          A3QENERG
+          <span
+            style={{
+              fontFamily: "'Newsreader', Georgia, serif",
+              fontSize: '1.1875rem',
+              fontWeight: 600,
+              color: '#18191A',
+              letterSpacing: '0.01em',
+              lineHeight: 1.2,
+            }}
+          >
+            Ferenc Csulak
+          </span>
+          <span
+            style={{
+              fontSize: '0.625rem',
+              fontWeight: 500,
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              color: '#2A5C34',
+              lineHeight: 1,
+            }}
+          >
+            Energy &amp; Leadership Advisor
+          </span>
         </a>
 
         {/* Desktop nav */}
@@ -88,7 +100,7 @@ export default function Header() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.125rem',
+            gap: '0',
             flex: 1,
             justifyContent: 'center',
           }}
@@ -98,21 +110,21 @@ export default function Header() {
               key={href}
               href={href}
               style={{
-                padding: '0.4rem 0.7rem',
+                padding: '0.4rem 0.85rem',
                 fontSize: '0.875rem',
-                fontWeight: isActive(href) ? 600 : 400,
-                color: isActive(href) ? '#2E5233' : '#3d3f3d',
+                fontWeight: isActive(href) ? 500 : 400,
+                color: isActive(href) ? '#2A5C34' : '#5A5D5A',
                 textDecoration: 'none',
-                borderRadius: '4px',
-                transition: 'color 0.2s, background-color 0.2s',
-                backgroundColor: isActive(href) ? '#e7e8e7' : 'transparent',
+                borderRadius: '3px',
+                transition: 'color 0.15s',
                 whiteSpace: 'nowrap',
+                letterSpacing: '0.01em',
               }}
               onMouseEnter={(e) => {
-                if (!isActive(href)) e.currentTarget.style.color = '#2E5233';
+                if (!isActive(href)) e.currentTarget.style.color = '#18191A';
               }}
               onMouseLeave={(e) => {
-                if (!isActive(href)) e.currentTarget.style.color = '#3d3f3d';
+                if (!isActive(href)) e.currentTarget.style.color = '#5A5D5A';
               }}
             >
               {label}
@@ -120,56 +132,29 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Right side: lang switcher + CTA */}
+        {/* CTA */}
         <div
           className="desktop-nav"
-          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}
         >
-          {/* Language switcher */}
-          <div style={{ display: 'flex', gap: '0.2rem' }}>
-            {LANGUAGES.map(({ code, label, title }) => (
-              <button
-                key={code}
-                title={title}
-                onClick={() => setActiveLang(code)}
-                style={{
-                  padding: '0.25rem 0.45rem',
-                  fontSize: '0.6875rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.05em',
-                  border: `1px solid ${activeLang === code ? '#2E5233' : '#e7e8e7'}`,
-                  borderRadius: '3px',
-                  background: activeLang === code ? '#2E5233' : 'transparent',
-                  color: activeLang === code ? '#f9f9f8' : '#c8cac8',
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                  lineHeight: 1,
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-
-          {/* Book CTA */}
           <a
             href="/contact"
             style={{
-              padding: '0.45rem 1.1rem',
+              padding: '0.5rem 1.25rem',
               fontSize: '0.875rem',
               fontWeight: 600,
-              color: '#f9f9f8',
-              backgroundColor: '#2E5233',
+              color: '#FAFAF7',
+              backgroundColor: '#2A5C34',
               textDecoration: 'none',
-              borderRadius: '4px',
+              borderRadius: '3px',
               transition: 'background-color 0.2s',
               whiteSpace: 'nowrap',
-              marginLeft: '0.25rem',
+              letterSpacing: '0.01em',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#173b1e')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2E5233')}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#1A3D22')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2A5C34')}
           >
-            Book Consultation
+            Book a Call
           </a>
         </div>
 
@@ -185,10 +170,10 @@ export default function Header() {
             border: 'none',
             cursor: 'pointer',
             padding: '0.5rem',
-            color: '#173b1e',
+            color: '#18191A',
           }}
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -197,12 +182,12 @@ export default function Header() {
         <nav
           aria-label="Mobile navigation"
           style={{
-            borderTop: '1px solid #e7e8e7',
-            backgroundColor: '#f9f9f8',
+            borderTop: '1px solid #E4E5E2',
+            backgroundColor: '#FAFAF7',
             padding: '1rem 1.5rem 1.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.25rem',
+            gap: '0.15rem',
           }}
         >
           {NAV_LINKS.map(({ href, label }) => (
@@ -211,13 +196,13 @@ export default function Header() {
               href={href}
               onClick={() => setMenuOpen(false)}
               style={{
-                padding: '0.65rem 0.75rem',
+                padding: '0.7rem 0.75rem',
                 fontSize: '1rem',
-                fontWeight: isActive(href) ? 600 : 400,
-                color: isActive(href) ? '#2E5233' : '#3d3f3d',
+                fontWeight: isActive(href) ? 500 : 400,
+                color: isActive(href) ? '#2A5C34' : '#18191A',
                 textDecoration: 'none',
-                borderRadius: '4px',
-                backgroundColor: isActive(href) ? '#e7e8e7' : 'transparent',
+                borderRadius: '3px',
+                backgroundColor: isActive(href) ? '#F3F4F1' : 'transparent',
               }}
             >
               {label}
@@ -228,48 +213,24 @@ export default function Header() {
             href="/contact"
             onClick={() => setMenuOpen(false)}
             style={{
-              marginTop: '0.5rem',
-              padding: '0.65rem 0.75rem',
-              fontSize: '1rem',
+              marginTop: '0.75rem',
+              padding: '0.75rem',
+              fontSize: '0.9375rem',
               fontWeight: 600,
-              color: '#f9f9f8',
-              backgroundColor: '#2E5233',
+              color: '#FAFAF7',
+              backgroundColor: '#2A5C34',
               textDecoration: 'none',
-              borderRadius: '4px',
+              borderRadius: '3px',
               textAlign: 'center',
             }}
           >
-            Book Consultation
+            Book a Call
           </a>
-
-          {/* Language switcher in mobile */}
-          <div style={{ display: 'flex', gap: '0.4rem', marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid #e7e8e7' }}>
-            {LANGUAGES.map(({ code, label, title }) => (
-              <button
-                key={code}
-                title={title}
-                onClick={() => setActiveLang(code)}
-                style={{
-                  padding: '0.3rem 0.6rem',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.05em',
-                  border: `1px solid ${activeLang === code ? '#2E5233' : '#e7e8e7'}`,
-                  borderRadius: '3px',
-                  background: activeLang === code ? '#2E5233' : 'transparent',
-                  color: activeLang === code ? '#f9f9f8' : '#c8cac8',
-                  cursor: 'pointer',
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
         </nav>
       )}
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 860px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
         }

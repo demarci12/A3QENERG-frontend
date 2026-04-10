@@ -1,5 +1,5 @@
 ---
-// Layout.astro — root shell for all A3QENERG pages
+// Layout.astro — root shell for all Ferenc Csulak pages
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header';
 
@@ -17,75 +17,102 @@ const { title, description, image, lang = 'en' } = Astro.props;
   <head>
     <BaseHead title={title} description={description} image={image} lang={lang} />
   </head>
-  <body class="flex flex-col min-h-screen" style="background-color:#f9f9f8;">
+  <body class="flex flex-col min-h-screen" style="background-color:#FAFAF7;">
 
-    <!-- Reactive Header (React island) -->
     <Header client:load />
 
-    <!-- Page Content -->
     <main class="flex-1">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer style="background-color:#173b1e; color:#e7e8e7;">
-      <div style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem 3rem;">
+    <!-- ═══════════════════════════════════ FOOTER -->
+    <footer style="background-color:#18191A; color:#E4E5E2;">
+      <div style="max-width:1160px; margin:0 auto; padding:4rem 1.5rem 2.5rem;">
 
-        <!-- Top grid -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:3rem; margin-bottom:3rem;">
+        <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:3.5rem; margin-bottom:3.5rem;">
 
-          <!-- Brand column -->
-          <div>
-            <span style="font-family:'Newsreader',Georgia,serif; font-size:1.5rem; font-weight:700; color:#f9f9f8; letter-spacing:0.05em;">A3QENERG</span>
-            <p style="margin-top:0.75rem; font-size:0.875rem; line-height:1.6; color:#c8cac8;">
-              Strategic advisory on energy transformation, leadership excellence, and ESG governance.
+          <!-- Brand -->
+          <div style="max-width:340px;">
+            <a href="/" style="text-decoration:none;">
+              <p style="font-family:'Newsreader',Georgia,serif; font-size:1.25rem; font-weight:600; color:#FAFAF7; margin:0 0 0.2rem; letter-spacing:0.01em;">Ferenc Csulak</p>
+              <p style="font-size:0.625rem; font-weight:500; text-transform:uppercase; letter-spacing:0.16em; color:#2A5C34; margin:0 0 1.25rem;">Energy &amp; Leadership Advisor</p>
+            </a>
+            <p style="font-size:0.875rem; line-height:1.7; color:#9B9D9B; margin:0 0 1.25rem;">
+              40 years shaping European energy. Strategic advisor to executives navigating transformation, leadership, and sustainable performance.
             </p>
-            <p style="margin-top:1rem; font-size:0.75rem; color:#c8cac8;">
-              8045 Isztimér, Sport utca 26.<br />
-              <a href="tel:+12345678790" style="color:#c8cac8; text-decoration:none;">+1 234 567 890</a>
+            <p style="font-size:0.8125rem; color:#9B9D9B; margin:0; line-height:1.6;">
+              A3QENERG Consulting<br />
+              8045 Isztimér, Hungary
             </p>
           </div>
 
           <!-- Navigation -->
           <div>
-            <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:#e7e8e7; margin-bottom:1rem;">Navigation</h4>
-            <nav style="display:flex; flex-direction:column; gap:0.5rem;">
+            <h4 style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#5A5D5A; margin:0 0 1.25rem;">Navigate</h4>
+            <nav style="display:flex; flex-direction:column; gap:0.6rem;">
               {[
                 ['/', 'Home'],
-                ['/services', 'Services'],
-                ['/about-us', 'About Us'],
+                ['/about-us', 'About'],
                 ['/articles', 'Articles'],
-                ['/contact', 'Contact Us'],
+                ['/services', 'Work With Me'],
+                ['/contact', 'Contact'],
               ].map(([href, label]) => (
-                <a href={href} style="color:#c8cac8; text-decoration:none; font-size:0.875rem; transition:color 0.2s;"
-                   onmouseover="this.style.color='#f9f9f8'" onmouseout="this.style.color='#c8cac8'">{label}</a>
+                <a
+                  href={href}
+                  style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
+                  onmouseover="this.style.color='#E4E5E2'"
+                  onmouseout="this.style.color='#9B9D9B'"
+                >
+                  {label}
+                </a>
               ))}
             </nav>
           </div>
 
-          <!-- Contact / Social -->
+          <!-- Connect -->
           <div>
-            <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:#e7e8e7; margin-bottom:1rem;">Connect</h4>
-            <div style="display:flex; flex-direction:column; gap:0.5rem;">
-              <a href="mailto:contact@a3qenerg.com" style="color:#c8cac8; text-decoration:none; font-size:0.875rem;">contact@a3qenerg.com</a>
-              <a href="https://www.linkedin.com/in/ferenccsulak" target="_blank" rel="noopener" style="color:#c8cac8; text-decoration:none; font-size:0.875rem;">LinkedIn</a>
+            <h4 style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#5A5D5A; margin:0 0 1.25rem;">Connect</h4>
+            <div style="display:flex; flex-direction:column; gap:0.6rem;">
+              <a
+                href="mailto:csulak.ferenc@a3qenerg.com"
+                style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
+                onmouseover="this.style.color='#E4E5E2'"
+                onmouseout="this.style.color='#9B9D9B'"
+              >
+                csulak.ferenc@a3qenerg.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ferenccsulak"
+                target="_blank"
+                rel="noopener"
+                style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s; display:flex; align-items:center; gap:0.4rem;"
+                onmouseover="this.style.color='#E4E5E2'"
+                onmouseout="this.style.color='#9B9D9B'"
+              >
+                LinkedIn →
+              </a>
+            </div>
+
+            <div style="margin-top:1.5rem; padding:1rem 1.125rem; background:rgba(42,92,52,0.12); border-radius:4px; border-left:2px solid #2A5C34;">
+              <p style="font-size:0.75rem; color:#9B9D9B; margin:0 0 0.5rem; line-height:1.5;">Available in</p>
+              <div style="display:flex; gap:0.4rem;">
+                {['EN', 'RO', 'HU'].map(lang => (
+                  <span style="font-size:0.625rem; font-weight:700; padding:0.2rem 0.45rem; border:1px solid #2A5C34; color:#2A5C34; border-radius:2px; letter-spacing:0.08em;">{lang}</span>
+                ))}
+              </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Divider -->
-        <div style="border-top:1px solid #2E5233; padding-top:2rem;">
-
-          <!-- Shingo Quote -->
-          <blockquote style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:1rem; color:#e7e8e7; margin:0 0 1.5rem; line-height:1.6; max-width:640px;">
-            "The most dangerous kind of waste is the waste we do not recognize."
-            <footer style="margin-top:0.5rem; font-size:0.75rem; font-style:normal; color:#c8cac8; font-family:sans-serif;">— Shigeo Shingo</footer>
-          </blockquote>
-
-          <p style="font-size:0.75rem; color:#c8cac8;">
-            &copy; {new Date().getFullYear()} A3QENERG / Ferenc Csulak. All rights reserved.
+        <!-- Bottom bar -->
+        <div style="border-top:1px solid #2A2B2A; padding-top:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <p style="font-size:0.75rem; color:#5A5D5A; margin:0;">
+            &copy; {new Date().getFullYear()} Ferenc Csulak / A3QENERG. All rights reserved.
           </p>
+          <blockquote style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:0.875rem; color:#5A5D5A; margin:0; border:none; padding:0;">
+            "The most dangerous kind of waste is the waste we do not recognize." — Shigeo Shingo
+          </blockquote>
         </div>
 
       </div>
@@ -93,3 +120,16 @@ const { title, description, image, lang = 'en' } = Astro.props;
 
   </body>
 </html>
+
+<style>
+  @media (max-width: 720px) {
+    footer > div > div:first-child {
+      grid-template-columns: 1fr !important;
+      gap: 2.5rem !important;
+    }
+    footer > div > div:last-child {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
