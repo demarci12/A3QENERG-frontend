@@ -7,59 +7,139 @@ import { formatDate, getAuthorName, getCategories, getPosts, stripHtml } from '.
 
 const posts = await getPosts(20);
 const [featured, ...archive] = posts;
+
+const services = [
+  {
+    id: 'roadmap',
+    title: 'Heading for a roadmap',
+    body: 'The program is leading you through a process of creating a roadmap, based on your vision and mission statements, towards a clarity in goals and milestones on mid- and long-term.',
+    href: '/services#roadmap',
+  },
+  {
+    id: 'mentoring',
+    title: 'Mentoring',
+    body: 'The mentoring process is dedicated to beginners in strengthening their career path and knowledge in specific fields and general management, and also to experienced middle and top managers who see opportunities in enhancing their skills and competences.',
+    href: '/services#mentoring',
+  },
+  {
+    id: 'leadership-on-top',
+    title: 'Leadership on top',
+    body: 'A program targeting middle and top managers, offering a new set of management tools and techniques, in order to improve their performance and mood.',
+    href: '/services#leadership-on-top',
+  },
+  {
+    id: 'multigenerational',
+    title: 'Multiple generation management',
+    body: 'Our days the new media/technological generations are active in the workforce market. Therefore often in one company the management has to deal with 3–4 different generations characterised by significant cultural and behavioural differences. The program is giving a set of tools in understanding and managing these differences.',
+    href: '/services#multigenerational',
+  },
+  {
+    id: 'leaders-for-safety',
+    title: 'Leaders for safety',
+    body: 'The new global trends of urbanisation and the top attention for digital world lead to decreasing professional skills in professions with high skills needed in handling manual tools. The number of severe accidents is increasing in these industries challenging the top and middle management. This program is giving a support for the operative, middle and top management regarding work safety issues.',
+    href: '/services#leaders-for-safety',
+  },
+  {
+    id: 'esg',
+    title: 'Environmental & Social & Governance on focus',
+    body: 'Not only due to the legal requirements published by European Union but also the needs of managing the climate changes create a special focus for the sustainability of any kind of industry and business. The program result is an ESG strategy and is supporting to implement on different units of the company.',
+    href: '/services#esg',
+  },
+];
+
+const coreValues = [
+  {
+    n: '01',
+    title: 'Sustained Growth & Excellence',
+    body: 'Increasing in a sustained way the overall performance, company value, financial results, production, products & services quality, customer satisfaction, for the company.',
+  },
+  {
+    n: '02',
+    title: 'Efficiency & Harmony',
+    body: 'Reducing the invested effort and internal friction for the same or better performance! Creating an effective inspiring environment, for all generations in the working teams.',
+  },
+  {
+    n: '03',
+    title: 'Peak Performance & Positive Culture',
+    body: 'Better performance, less effort and significant better general mood in the company!',
+  },
+  {
+    n: '04',
+    title: 'Clarity & Simplicity',
+    body: 'Clarity and simplicity in our advices for any kind of challenge in the European energy industry, so easy to know, easy to understand, easy to apply the learned tools.',
+  },
+  {
+    n: '05',
+    title: 'Inspiring Limitless Potential',
+    body: 'We are inspiring you to be better than you even believe that you could be!',
+  },
+  {
+    n: '06',
+    title: 'Engaging & Enjoyable Collaboration',
+    body: 'Enjoy and fun working together with us. Multiplying the time spent value!',
+  },
+];
 ---
 
 <Layout
-  title="A3QENERG — Strategic Insights on Energy Transformation"
-  description="Strategic insights on energy transformation, leadership excellence, and ESG governance by Ferenc Csulak."
+  title="A3QENERG — Energy Industry Expertise & Business Coaching"
+  description="Our core know-how is the energy industry — gas & power. Expertise in regulation, markets, grid and energy systems, renewables, business models, and leadership coaching."
 >
 
   <!-- ═══════════════════════════════════════════════════════ HERO -->
-  <section style="padding: 5rem 1.5rem 4rem; max-width:1200px; margin:0 auto;">
-    <div style="max-width:800px;">
+  <section style="padding:5rem 1.5rem 4rem; max-width:1200px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center; flex-wrap:wrap;">
 
-      <!-- Author tag with photo -->
-      <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:1.25rem;">
+      <div style="max-width:760px;">
+        <!-- Author tag -->
+        <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:1.5rem;">
+          <Image
+            src={ferencPhoto}
+            alt="Ferenc Csulak"
+            width={44}
+            height={44}
+            style="width:44px; height:44px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid #e7e8e7; flex-shrink:0;"
+          />
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; font-weight:600; margin:0;">
+            Ferenc Csulak — Founder & CEO
+          </p>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.75rem,4vw,2.9rem); font-weight:700; color:#173b1e; line-height:1.25; margin-bottom:1.5rem;">
+          Our core know-how, is the energy industry — gas &amp; power — due to our solid expertise in regulation, markets, grid and energy systems' challenges, renewables, energy companies structure &amp; functions, business models…
+        </h1>
+
+        <!-- CTA -->
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center; margin-top:2rem;">
+          <a
+            href="/contact"
+            style="padding:0.85rem 1.75rem; background-color:#2E5233; color:#f9f9f8; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:4px; transition:background-color 0.2s;"
+            onmouseover="this.style.backgroundColor='#173b1e'"
+            onmouseout="this.style.backgroundColor='#2E5233'"
+          >
+            Contact us
+          </a>
+          <a
+            href="/services"
+            style="padding:0.85rem 1.75rem; background-color:transparent; color:#2E5233; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:4px; border:1.5px solid #2E5233; transition:all 0.2s;"
+            onmouseover="this.style.backgroundColor='#2E5233'; this.style.color='#f9f9f8';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2E5233';"
+          >
+            Our Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Portrait (hidden on small screens) -->
+      <div style="flex-shrink:0;" class="hero-portrait">
         <Image
           src={ferencPhoto}
           alt="Ferenc Csulak"
-          width={40}
-          height={40}
-          style="width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid #e7e8e7;"
+          width={320}
+          height={300}
+          style="width:280px; height:280px; border-radius:8px; object-fit:cover; object-position:center top; display:block;"
         />
-        <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; font-weight:600; margin:0;">
-          Penned by Ferenc Csulak
-        </p>
-      </div>
-
-      <!-- Hero Title -->
-      <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(2.2rem,5vw,3.5rem); font-weight:700; color:#173b1e; line-height:1.15; margin-bottom:1.5rem;">
-        Strategic Insights on<br />Energy Transformation.
-      </h1>
-
-      <!-- Hero Quote -->
-      <blockquote style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:clamp(1rem,2vw,1.2rem); color:#3d3f3d; border-left:3px solid #2E5233; padding-left:1.25rem; margin:0 0 2rem; line-height:1.7; max-width:640px;">
-        "Giving back to our societies the know-how gathered and experienced, being part of a more educated and prepared society for existing and upcoming challenges."
-      </blockquote>
-
-      <!-- CTA -->
-      <div style="display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center;">
-        <a
-          href="/contact"
-          style="padding:0.8rem 1.75rem; background-color:#2E5233; color:#f9f9f8; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:4px; transition:background-color 0.2s;"
-          onmouseover="this.style.backgroundColor='#173b1e'"
-          onmouseout="this.style.backgroundColor='#2E5233'"
-        >
-          Book Consultation
-        </a>
-        <a
-          href="/articles"
-          style="padding:0.8rem 1.75rem; background-color:transparent; color:#2E5233; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:4px; border:1.5px solid #2E5233; transition:all 0.2s;"
-          onmouseover="this.style.backgroundColor='#2E5233'; this.style.color='#f9f9f8';"
-          onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2E5233';"
-        >
-          Browse All Articles
-        </a>
       </div>
 
     </div>
@@ -68,117 +148,146 @@ const [featured, ...archive] = posts;
   <!-- ═══════════════════════════════════════════════════════ DIVIDER -->
   <div style="border-top:1px solid #e7e8e7; max-width:1200px; margin:0 auto;"></div>
 
-  <!-- ═══════════════════════════════════════════════════════ LATEST PUBLICATION -->
-  {featured && (
-    <section style="padding:4rem 1.5rem; max-width:1200px; margin:0 auto;">
+  <!-- ═══════════════════════════════════════════════════════ SERVICES INTRO -->
+  <section style="padding:4rem 1.5rem; max-width:1200px; margin:0 auto;">
 
-      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; margin-bottom:2rem; font-weight:600;">
-        Latest Publication
+    <div style="max-width:720px; margin-bottom:3rem;">
+      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; margin-bottom:1rem; font-weight:600;">
+        Additional Products
       </p>
+      <p style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.15rem,2.5vw,1.4rem); color:#173b1e; line-height:1.65; margin:0;">
+        We are offering in addition our expertise, gained over years of work and dedication, by providing new knowledge in an enjoyable manner! Have a glimpse on our additional products:
+      </p>
+    </div>
 
+    <!-- Service Cards -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.75rem; margin-bottom:2.5rem;">
+      {services.map((s) => (
+        <a
+          href={s.href}
+          style="display:block; text-decoration:none; color:inherit; padding:1.75rem; border:1px solid #e7e8e7; border-radius:6px; transition:border-color 0.2s, box-shadow 0.2s;"
+          onmouseover="this.style.borderColor='#2E5233'; this.style.boxShadow='0 4px 20px rgba(46,82,51,0.08)';"
+          onmouseout="this.style.borderColor='#e7e8e7'; this.style.boxShadow='none';"
+        >
+          <h3 style="font-family:'Newsreader',Georgia,serif; font-size:1.125rem; font-weight:700; color:#173b1e; margin:0 0 0.75rem; line-height:1.3;">
+            {s.title}
+          </h3>
+          <p style="font-size:0.875rem; color:#3d3f3d; line-height:1.7; margin:0;">
+            {s.body}
+          </p>
+        </a>
+      ))}
+    </div>
+
+    <div style="text-align:center;">
       <a
-        href={`/articles/${featured.slug}`}
-        style="display:block; text-decoration:none; color:inherit; max-width:760px;"
+        href="/services"
+        style="display:inline-block; padding:0.75rem 1.75rem; border:1.5px solid #2E5233; color:#2E5233; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:4px; transition:all 0.2s;"
+        onmouseover="this.style.backgroundColor='#2E5233'; this.style.color='#f9f9f8';"
+        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2E5233';"
       >
-        <!-- Category chips -->
-        {getCategories(featured).map(cat => (
-          <span style="display:inline-block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; background:#e7e8e7; color:#2E5233; padding:0.2rem 0.6rem; border-radius:3px; margin-right:0.4rem; margin-bottom:0.75rem; font-weight:600;">
-            {cat}
-          </span>
-        ))}
-
-        <!-- Title -->
-        <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#173b1e; line-height:1.2; margin:0 0 1rem;">
-          {featured.title.rendered}
-        </h2>
-
-        <!-- Excerpt -->
-        <p style="font-size:1.0625rem; color:#3d3f3d; line-height:1.7; margin-bottom:1.25rem; max-width:640px;">
-          {stripHtml(featured.excerpt.rendered).slice(0, 240)}…
-        </p>
-
-        <!-- Meta -->
-        <div style="display:flex; align-items:center; gap:1rem; font-size:0.8125rem; color:#c8cac8;">
-          <span>{getAuthorName(featured)}</span>
-          <span aria-hidden="true">·</span>
-          <time datetime={featured.date}>{formatDate(featured.date)}</time>
-          <span style="color:#2E5233; font-weight:600;">Read →</span>
-        </div>
+        View All Services →
       </a>
-    </section>
-  )}
+    </div>
+
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════ LEAD MAGNET -->
   <LeadMagnet />
 
-  <!-- ═══════════════════════════════════════════════════════ THE ARCHIVE -->
-  {archive.length > 0 && (
-    <section style="padding:4rem 1.5rem; max-width:1200px; margin:0 auto;">
+  <!-- ═══════════════════════════════════════════════════════ WHY CHOOSE US -->
+  <section style="padding:5rem 1.5rem; max-width:1200px; margin:0 auto;">
+
+    <div style="max-width:720px; margin-bottom:3.5rem;">
+      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; margin-bottom:1rem; font-weight:600;">
+        Why Choose Us
+      </p>
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#173b1e; line-height:1.25; margin-bottom:1.25rem;">
+        We Are here to inspire you, to support you on your business journeys…
+      </h2>
+      <p style="font-size:1.0625rem; color:#3d3f3d; line-height:1.75; margin-bottom:0.75rem;">
+        …gaining expertise and new knowledge on the products offered by us, in an enjoyable way!
+      </p>
+      <p style="font-size:1rem; color:#3d3f3d; line-height:1.75;">
+        We are well-experienced business professionals in all fields of the energy industry, and we have proven expertise in the offered additional products.
+      </p>
+    </div>
+
+    <!-- Core Values Grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:2rem;">
+      {coreValues.map((v) => (
+        <div style="padding:1.75rem; border:1px solid #e7e8e7; border-radius:6px;">
+          <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; color:#2E5233; font-weight:700; display:block; margin-bottom:0.75rem;">
+            {v.n}
+          </span>
+          <h3 style="font-family:'Newsreader',Georgia,serif; font-size:1.1rem; font-weight:700; color:#173b1e; margin:0 0 0.6rem; line-height:1.3;">
+            {v.title}
+          </h3>
+          <p style="font-size:0.875rem; color:#3d3f3d; line-height:1.65; margin:0;">
+            {v.body}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ LATEST ARTICLES -->
+  {posts.length > 0 && (
+    <section style="border-top:1px solid #e7e8e7; padding:4rem 1.5rem; max-width:1200px; margin:0 auto;">
 
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem;">
         <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; font-weight:600; margin:0;">
-          The Archive
+          Latest Articles
         </p>
         <a href="/articles" style="font-size:0.875rem; color:#2E5233; text-decoration:none; font-weight:600;">
           View all →
         </a>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:2rem;">
-        {archive.slice(0, 6).map((post) => (
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2rem;">
+        {posts.slice(0, 3).map((post) => (
           <article>
             <a
               href={`/articles/${post.slug}`}
-              style="display:block; text-decoration:none; color:inherit; padding:1.75rem; border:1px solid #e7e8e7; border-radius:6px; transition:border-color 0.2s, box-shadow 0.2s; height:100%;"
+              style="display:flex; flex-direction:column; text-decoration:none; color:inherit; padding:1.75rem; border:1px solid #e7e8e7; border-radius:6px; height:100%; transition:border-color 0.2s, box-shadow 0.2s;"
               onmouseover="this.style.borderColor='#2E5233'; this.style.boxShadow='0 4px 20px rgba(46,82,51,0.08)';"
               onmouseout="this.style.borderColor='#e7e8e7'; this.style.boxShadow='none';"
             >
-              <!-- Category -->
               {getCategories(post)[0] && (
-                <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#2E5233; margin:0 0 0.75rem; font-weight:600;">
+                <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#2E5233; margin:0 0 0.6rem; font-weight:600;">
                   {getCategories(post)[0]}
                 </p>
               )}
-
-              <!-- Title -->
-              <h3 style="font-family:'Newsreader',Georgia,serif; font-size:1.2rem; font-weight:700; color:#173b1e; line-height:1.3; margin:0 0 0.75rem;">
+              <h3 style="font-family:'Newsreader',Georgia,serif; font-size:1.15rem; font-weight:700; color:#173b1e; line-height:1.3; margin:0 0 0.75rem; flex:1;">
                 {post.title.rendered}
               </h3>
-
-              <!-- Excerpt -->
               <p style="font-size:0.875rem; color:#3d3f3d; line-height:1.65; margin:0 0 1.25rem;">
-                {stripHtml(post.excerpt.rendered).slice(0, 140)}…
+                {stripHtml(post.excerpt.rendered).slice(0, 130)}…
               </p>
-
-              <!-- Meta -->
-              <div style="font-size:0.75rem; color:#c8cac8; margin-top:auto;">
+              <div style="font-size:0.75rem; color:#c8cac8; display:flex; gap:0.75rem; margin-top:auto;">
+                <span>{getAuthorName(post)}</span>
+                <span>·</span>
                 <time datetime={post.date}>{formatDate(post.date)}</time>
               </div>
             </a>
           </article>
         ))}
       </div>
-
     </section>
   )}
 
-  <!-- ═══════════════════════════════════════════════════════ HOME CTA BAND -->
-  <section style="background-color:#f9f9f8; border-top:1px solid #e7e8e7; padding:5rem 1.5rem; text-align:center;">
+  <!-- ═══════════════════════════════════════════════════════ CTA BAND -->
+  <section style="background:linear-gradient(135deg,#2E5233 0%,#173b1e 100%); padding:5rem 1.5rem; text-align:center;">
     <div style="max-width:600px; margin:0 auto;">
-      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; font-weight:600; margin-bottom:1rem;">
-        Executive Advisory
-      </p>
-      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:700; color:#173b1e; line-height:1.2; margin-bottom:1.25rem;">
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#f9f9f8; line-height:1.25; margin-bottom:2rem;">
         Overcome your obstacles.<br />Get Consultation, Today!
       </h2>
-      <p style="font-size:1rem; color:#3d3f3d; line-height:1.7; margin-bottom:2rem;">
-        Whether you're navigating a grid transformation, building leadership capability, or embedding ESG into strategy — let's talk.
-      </p>
       <a
         href="/contact"
-        style="display:inline-block; padding:0.875rem 2rem; background-color:#2E5233; color:#f9f9f8; font-size:1rem; font-weight:600; text-decoration:none; border-radius:4px; transition:background-color 0.2s;"
-        onmouseover="this.style.backgroundColor='#173b1e'"
-        onmouseout="this.style.backgroundColor='#2E5233'"
+        style="display:inline-block; padding:0.9rem 2.25rem; background-color:#f9f9f8; color:#173b1e; font-size:1rem; font-weight:700; text-decoration:none; border-radius:4px; transition:background-color 0.2s;"
+        onmouseover="this.style.backgroundColor='#e7e8e7'"
+        onmouseout="this.style.backgroundColor='#f9f9f8'"
       >
         Book Consultation
       </a>
@@ -186,3 +295,9 @@ const [featured, ...archive] = posts;
   </section>
 
 </Layout>
+
+<style>
+  @media (max-width: 768px) {
+    .hero-portrait { display: none !important; }
+  }
+</style>
