@@ -1,0 +1,239 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {
+  formatDate,
+  getAuthorName,
+  getCategories,
+  getFeaturedImage,
+  getPostBySlug,
+  getPosts,
+  stripHtml,
+} from '../../utils/wordpress';
+
+export async function getStaticPaths() {
+  const posts = await getPosts(100);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+if (!post) {
+  return Astro.redirect('/articles', 302);
+}
+
+const author = getAuthorName(post);
+const featuredImg = getFeaturedImage(post);
+const categories = getCategories(post);
+const readingMinutes = Math.max(1, Math.ceil(stripHtml(post.content.rendered).split(/\s+/).length / 200));
+
+// Fetch related posts (other posts, excluding current)
+const allPosts = await getPosts(10);
+const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+---
+
+<Layout
+  title={`${stripHtml(post.title.rendered)} — A3QENERG`}
+  description={stripHtml(post.excerpt.rendered).slice(0, 160)}
+  image={featuredImg?.source_url}
+>
+
+  <!-- ═══════════════════════════════════════════════════════ ARTICLE HEADER -->
+  <header style="padding:4rem 1.5rem 0; max-width:1200px; margin:0 auto;">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size:0.8125rem; color:#c8cac8; margin-bottom:2rem;">
+      <a href="/" style="color:#c8cac8; text-decoration:none;" onmouseover="this.style.color='#2E5233'" onmouseout="this.style.color='#c8cac8'">Home</a>
+      <span aria-hidden="true" style="margin:0 0.5rem;">/</span>
+      <a href="/articles" style="color:#c8cac8; text-decoration:none;" onmouseover="this.style.color='#2E5233'" onmouseout="this.style.color='#c8cac8'">Articles</a>
+      <span aria-hidden="true" style="margin:0 0.5rem;">/</span>
+      <span style="color:#3d3f3d;" aria-current="page">{stripHtml(post.title.rendered)}</span>
+    </nav>
+
+    <!-- Category chips -->
+    <div style="margin-bottom:1.25rem; display:flex; flex-wrap:wrap; gap:0.4rem;">
+      {categories.map((cat) => (
+        <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; background:#e7e8e7; color:#2E5233; padding:0.2rem 0.6rem; border-radius:3px; font-weight:600;">
+          {cat}
+        </span>
+      ))}
+    </div>
+
+    <!-- Title -->
+    <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.75rem,4.5vw,3rem); font-weight:700; color:#173b1e; line-height:1.2; max-width:760px; margin:0 0 1.5rem;">
+      {post.title.rendered}
+    </h1>
+
+    <!-- Meta bar -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1rem; font-size:0.8125rem; color:#c8cac8; margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid #e7e8e7;">
+      <span>{author}</span>
+      <span aria-hidden="true">·</span>
+      <time datetime={post.date}>{formatDate(post.date)}</time>
+      <span aria-hidden="true">·</span>
+      <span>{readingMinutes} min read</span>
+    </div>
+
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════ FEATURED IMAGE -->
+  {featuredImg && (
+    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem 3rem;">
+      <img
+        src={featuredImg.source_url}
+        alt={featuredImg.alt_text || stripHtml(post.title.rendered)}
+        width={featuredImg.media_details?.width ?? 1200}
+        height={featuredImg.media_details?.height ?? 630}
+        style="width:100%; height:auto; max-height:540px; object-fit:cover; border-radius:6px;"
+        loading="eager"
+      />
+    </div>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════ ARTICLE BODY -->
+  <div style="padding:0 1.5rem 5rem; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr min(680px,100%); gap:4rem; align-items:start;">
+
+    <!-- Left gutter (desktop only — sticky author card) -->
+    <aside
+      style="position:sticky; top:80px; display:none;"
+      class="article-sidebar"
+    >
+      <div style="padding:1.5rem; border:1px solid #e7e8e7; border-radius:6px;">
+        <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#c8cac8; margin:0 0 0.5rem; font-weight:600;">Author</p>
+        <p style="font-family:'Newsreader',Georgia,serif; font-size:1.05rem; font-weight:700; color:#173b1e; margin:0 0 0.25rem;">{author}</p>
+        <p style="font-size:0.8125rem; color:#3d3f3d; line-height:1.5; margin:0 0 1rem;">General Manager, Delgaz Grid. Strategic advisor on energy transformation.</p>
+        <a href="/about-us" style="font-size:0.8125rem; color:#2E5233; text-decoration:none; font-weight:600;">Read bio →</a>
+      </div>
+    </aside>
+
+    <!-- Article content -->
+    <article>
+      <div
+        class="prose prose-stone"
+        style="font-family:'Newsreader',Georgia,serif; font-size:1.1rem; line-height:1.8; color:#3d3f3d;"
+        set:html={post.content.rendered}
+      />
+
+      <!-- Tags -->
+      {post._embedded?.['wp:term']?.[1]?.length > 0 && (
+        <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid #e7e8e7;">
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#c8cac8; margin:0 0 0.75rem; font-weight:600;">Topics</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+            {post._embedded['wp:term'][1].map((tag) => (
+              <span style="font-size:0.8125rem; color:#3d3f3d; background:#e7e8e7; padding:0.25rem 0.65rem; border-radius:3px;">
+                {tag.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </article>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ RELATED ARTICLES -->
+  {related.length > 0 && (
+    <section style="border-top:1px solid #e7e8e7; padding:4rem 1.5rem; max-width:1200px; margin:0 auto;">
+
+      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; margin-bottom:2rem; font-weight:600;">
+        Continue Reading
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem;">
+        {related.map((rp) => (
+          <a
+            href={`/articles/${rp.slug}`}
+            style="display:block; text-decoration:none; color:inherit; padding:1.5rem; border:1px solid #e7e8e7; border-radius:6px; transition:border-color 0.2s;"
+            onmouseover="this.style.borderColor='#2E5233'"
+            onmouseout="this.style.borderColor='#e7e8e7'"
+          >
+            {getCategories(rp)[0] && (
+              <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#2E5233; margin:0 0 0.5rem; font-weight:600;">
+                {getCategories(rp)[0]}
+              </p>
+            )}
+            <h3 style="font-family:'Newsreader',Georgia,serif; font-size:1.05rem; font-weight:700; color:#173b1e; margin:0 0 0.5rem; line-height:1.3;">
+              {rp.title.rendered}
+            </h3>
+            <p style="font-size:0.8125rem; color:#c8cac8; margin:0;">
+              <time datetime={rp.date}>{formatDate(rp.date)}</time>
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════ BOTTOM CTA -->
+  <section style="background:linear-gradient(135deg,#2E5233,#173b1e); padding:4rem 1.5rem; text-align:center;">
+    <div style="max-width:520px; margin:0 auto;">
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:1.75rem; font-weight:700; color:#f9f9f8; margin-bottom:1rem; line-height:1.3;">
+        Found this useful?
+      </h2>
+      <p style="color:#e7e8e7; line-height:1.7; margin-bottom:2rem;">
+        Get the full Strategic Energy Audit Guide — a practitioner's framework for transformation readiness, free to download.
+      </p>
+      <a
+        href="/#lead-magnet"
+        style="display:inline-block; padding:0.8rem 1.75rem; background-color:#f9f9f8; color:#173b1e; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:4px;"
+      >
+        Download Free Guide
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @media (min-width: 900px) {
+    .article-sidebar { display: block !important; }
+  }
+
+  /* Prose typography */
+  .prose h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #173b1e;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .prose h3 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #173b1e;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+  }
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+  .prose blockquote {
+    border-left: 3px solid #2E5233;
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #2E5233;
+    font-size: 1.15rem;
+  }
+  .prose a {
+    color: #2E5233;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose ul, .prose ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+  .prose hr {
+    border: none;
+    border-top: 1px solid #e7e8e7;
+    margin: 2.5rem 0;
+  }
+</style>

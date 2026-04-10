@@ -1,0 +1,95 @@
+---
+// Layout.astro — root shell for all A3QENERG pages
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  lang?: string;
+}
+
+const { title, description, image, lang = 'en' } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <BaseHead title={title} description={description} image={image} lang={lang} />
+  </head>
+  <body class="flex flex-col min-h-screen" style="background-color:#f9f9f8;">
+
+    <!-- Reactive Header (React island) -->
+    <Header client:load />
+
+    <!-- Page Content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color:#173b1e; color:#e7e8e7;">
+      <div style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem 3rem;">
+
+        <!-- Top grid -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:3rem; margin-bottom:3rem;">
+
+          <!-- Brand column -->
+          <div>
+            <span style="font-family:'Newsreader',Georgia,serif; font-size:1.5rem; font-weight:700; color:#f9f9f8; letter-spacing:0.05em;">A3QENERG</span>
+            <p style="margin-top:0.75rem; font-size:0.875rem; line-height:1.6; color:#c8cac8;">
+              Strategic advisory on energy transformation, leadership excellence, and ESG governance.
+            </p>
+            <p style="margin-top:1rem; font-size:0.75rem; color:#c8cac8;">
+              8045 Isztimér, Sport utca 26.<br />
+              <a href="tel:+12345678790" style="color:#c8cac8; text-decoration:none;">+1 234 567 890</a>
+            </p>
+          </div>
+
+          <!-- Navigation -->
+          <div>
+            <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:#e7e8e7; margin-bottom:1rem;">Navigation</h4>
+            <nav style="display:flex; flex-direction:column; gap:0.5rem;">
+              {[
+                ['/', 'Home'],
+                ['/services', 'Services'],
+                ['/about-us', 'About Us'],
+                ['/articles', 'Articles'],
+                ['/contact', 'Contact Us'],
+              ].map(([href, label]) => (
+                <a href={href} style="color:#c8cac8; text-decoration:none; font-size:0.875rem; transition:color 0.2s;"
+                   onmouseover="this.style.color='#f9f9f8'" onmouseout="this.style.color='#c8cac8'">{label}</a>
+              ))}
+            </nav>
+          </div>
+
+          <!-- Contact / Social -->
+          <div>
+            <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:#e7e8e7; margin-bottom:1rem;">Connect</h4>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="mailto:contact@a3qenerg.com" style="color:#c8cac8; text-decoration:none; font-size:0.875rem;">contact@a3qenerg.com</a>
+              <a href="https://www.linkedin.com/in/ferenccsulak" target="_blank" rel="noopener" style="color:#c8cac8; text-decoration:none; font-size:0.875rem;">LinkedIn</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div style="border-top:1px solid #2E5233; padding-top:2rem;">
+
+          <!-- Shingo Quote -->
+          <blockquote style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:1rem; color:#e7e8e7; margin:0 0 1.5rem; line-height:1.6; max-width:640px;">
+            "The most dangerous kind of waste is the waste we do not recognize."
+            <footer style="margin-top:0.5rem; font-size:0.75rem; font-style:normal; color:#c8cac8; font-family:sans-serif;">— Shigeo Shingo</footer>
+          </blockquote>
+
+          <p style="font-size:0.75rem; color:#c8cac8;">
+            &copy; {new Date().getFullYear()} A3QENERG / Ferenc Csulak. All rights reserved.
+          </p>
+        </div>
+
+      </div>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,99 @@
+---
+// Timeline.astro — Vertical career timeline for About Us page
+
+interface TimelineEntry {
+  period: string;
+  role: string;
+  company: string;
+  current?: boolean;
+}
+
+const entries: TimelineEntry[] = [
+  {
+    period: 'Apr 2022 – Present',
+    role: 'General Manager',
+    company: 'Delgaz Grid',
+    current: true,
+  },
+  {
+    period: '2017 – 2022',
+    role: 'CEO',
+    company: 'Delgaz Grid',
+  },
+  {
+    period: '2015 – 2017',
+    role: 'CEO',
+    company: 'E.ON Hungária Zrt.',
+  },
+  {
+    period: '2015 – 2017',
+    role: 'CEO',
+    company: 'E.ON Közép-dunántúli Gázhálózati ZRT',
+  },
+  {
+    period: '2004 – 2008',
+    role: 'Deputy General Director',
+    company: 'E.ON Moldova',
+  },
+  {
+    period: '2001 – 2004',
+    role: 'Department Leader',
+    company: 'ÉDÁSZ RT',
+  },
+];
+---
+
+<div style="position:relative; padding-left: 2rem;">
+
+  <!-- Vertical line -->
+  <div
+    style="position:absolute; left:0.5rem; top:0; bottom:0; width:2px; background: linear-gradient(to bottom, #2E5233, #e7e8e7);"
+    aria-hidden="true"
+  ></div>
+
+  {entries.map((entry, i) => (
+    <div
+      style={`position:relative; padding-bottom:${i < entries.length - 1 ? '2.5rem' : '0'}; padding-left:1.5rem;`}
+    >
+      <!-- Dot -->
+      <div
+        style={`
+          position:absolute;
+          left:-0.35rem;
+          top:0.3rem;
+          width:0.9rem;
+          height:0.9rem;
+          border-radius:50%;
+          background-color:${entry.current ? '#2E5233' : '#f9f9f8'};
+          border:2px solid ${entry.current ? '#2E5233' : '#c8cac8'};
+          flex-shrink:0;
+        `}
+        aria-hidden="true"
+      ></div>
+
+      <!-- Content -->
+      <div>
+        <!-- Period -->
+        <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#2E5233; margin:0 0 0.2rem; font-weight:600;">
+          {entry.period}
+          {entry.current && (
+            <span style="margin-left:0.5rem; background:#2E5233; color:#f9f9f8; font-size:0.65rem; padding:0.1rem 0.4rem; border-radius:3px; vertical-align:middle; letter-spacing:0.05em;">
+              Current
+            </span>
+          )}
+        </p>
+
+        <!-- Role -->
+        <p style="font-family:'Newsreader',Georgia,serif; font-size:1.1rem; font-weight:700; color:#173b1e; margin:0 0 0.1rem; line-height:1.3;">
+          {entry.role}
+        </p>
+
+        <!-- Company -->
+        <p style="font-size:0.9rem; color:#3d3f3d; margin:0;">
+          {entry.company}
+        </p>
+      </div>
+    </div>
+  ))}
+
+</div>

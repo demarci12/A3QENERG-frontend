@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact Us — A3QENERG"
+  description="Get in touch with Ferenc Csulak to discuss advisory services, speaking engagements, or media enquiries."
+>
+
+  <!-- ═══════════════════════════════════════════════════════ HERO -->
+  <section style="padding:5rem 1.5rem 4rem; max-width:1200px; margin:0 auto;">
+    <div style="max-width:640px;">
+      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; margin-bottom:1rem; font-weight:600;">
+        Get in Touch
+      </p>
+      <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(2rem,4.5vw,3rem); font-weight:700; color:#173b1e; line-height:1.2; margin-bottom:1.25rem;">
+        Let's Start a Conversation
+      </h1>
+      <p style="font-size:1.0625rem; color:#3d3f3d; line-height:1.75;">
+        Whether you're exploring a specific advisory service, have a speaking enquiry, or simply want to exchange ideas — send a message and I'll come back within two business days.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ DIVIDER -->
+  <div style="border-top:1px solid #e7e8e7; max-width:1200px; margin:0 auto;"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ CONTACT GRID -->
+  <section style="padding:4rem 1.5rem 5rem; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:4rem; align-items:start;">
+
+    <!-- Contact form -->
+    <div>
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:1.375rem; font-weight:700; color:#173b1e; margin-bottom:1.5rem; line-height:1.25;">
+        Send a Message
+      </h2>
+
+      <form
+        id="contact-form"
+        style="display:flex; flex-direction:column; gap:1.25rem;"
+        novalidate
+      >
+        <!-- Name -->
+        <div>
+          <label for="cf-name" style="display:block; font-size:0.8125rem; font-weight:600; color:#173b1e; margin-bottom:0.4rem;">
+            Full Name <span aria-hidden="true" style="color:#2E5233;">*</span>
+          </label>
+          <input
+            id="cf-name"
+            type="text"
+            name="name"
+            required
+            autocomplete="name"
+            placeholder="Your name"
+            style="width:100%; padding:0.7rem 0.875rem; font-size:0.9375rem; border:1px solid #e7e8e7; border-radius:4px; background:#f9f9f8; color:#3d3f3d; outline:none; transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='#2E5233'"
+            onblur="this.style.borderColor='#e7e8e7'"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="cf-email" style="display:block; font-size:0.8125rem; font-weight:600; color:#173b1e; margin-bottom:0.4rem;">
+            Business Email <span aria-hidden="true" style="color:#2E5233;">*</span>
+          </label>
+          <input
+            id="cf-email"
+            type="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="you@company.com"
+            style="width:100%; padding:0.7rem 0.875rem; font-size:0.9375rem; border:1px solid #e7e8e7; border-radius:4px; background:#f9f9f8; color:#3d3f3d; outline:none; transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='#2E5233'"
+            onblur="this.style.borderColor='#e7e8e7'"
+          />
+        </div>
+
+        <!-- Subject -->
+        <div>
+          <label for="cf-subject" style="display:block; font-size:0.8125rem; font-weight:600; color:#173b1e; margin-bottom:0.4rem;">
+            Subject
+          </label>
+          <select
+            id="cf-subject"
+            name="subject"
+            style="width:100%; padding:0.7rem 0.875rem; font-size:0.9375rem; border:1px solid #e7e8e7; border-radius:4px; background:#f9f9f8; color:#3d3f3d; outline:none; cursor:pointer; transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='#2E5233'"
+            onblur="this.style.borderColor='#e7e8e7'"
+          >
+            <option value="">Select a topic…</option>
+            <option value="advisory">Advisory / Consulting Enquiry</option>
+            <option value="mentoring">Mentoring Programme</option>
+            <option value="speaking">Speaking Engagement</option>
+            <option value="media">Media / Press</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="cf-message" style="display:block; font-size:0.8125rem; font-weight:600; color:#173b1e; margin-bottom:0.4rem;">
+            Message <span aria-hidden="true" style="color:#2E5233;">*</span>
+          </label>
+          <textarea
+            id="cf-message"
+            name="message"
+            required
+            rows="6"
+            placeholder="Describe your situation and what you're looking for…"
+            style="width:100%; padding:0.7rem 0.875rem; font-size:0.9375rem; border:1px solid #e7e8e7; border-radius:4px; background:#f9f9f8; color:#3d3f3d; outline:none; resize:vertical; transition:border-color 0.2s; font-family:inherit;"
+            onfocus="this.style.borderColor='#2E5233'"
+            onblur="this.style.borderColor='#e7e8e7'"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          style="align-self:flex-start; padding:0.8rem 2rem; background-color:#2E5233; color:#f9f9f8; font-size:0.9375rem; font-weight:600; border:none; border-radius:4px; cursor:pointer; transition:background-color 0.2s;"
+          onmouseover="this.style.backgroundColor='#173b1e'"
+          onmouseout="this.style.backgroundColor='#2E5233'"
+        >
+          Send Message
+        </button>
+
+        <!-- Success message -->
+        <p id="cf-success" style="display:none; color:#2E5233; font-size:0.9375rem;">
+          ✓ Thank you — your message has been received. I'll be in touch within two business days.
+        </p>
+      </form>
+    </div>
+
+    <!-- Contact details -->
+    <div style="display:flex; flex-direction:column; gap:2rem;">
+
+      <div>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-size:1.375rem; font-weight:700; color:#173b1e; margin-bottom:1.25rem; line-height:1.25;">
+          Direct Contact
+        </h2>
+
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+
+          <div>
+            <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#c8cac8; margin:0 0 0.3rem; font-weight:600;">Address</p>
+            <p style="font-size:0.9375rem; color:#3d3f3d; margin:0; line-height:1.6;">
+              8045 Isztimér, Sport utca 26.
+            </p>
+          </div>
+
+          <div>
+            <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#c8cac8; margin:0 0 0.3rem; font-weight:600;">Phone</p>
+            <a href="tel:+12345678790" style="font-size:0.9375rem; color:#2E5233; text-decoration:none; font-weight:500;">+1 234 567 890</a>
+          </div>
+
+          <div>
+            <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#c8cac8; margin:0 0 0.3rem; font-weight:600;">Email</p>
+            <a href="mailto:contact@a3qenerg.com" style="font-size:0.9375rem; color:#2E5233; text-decoration:none; font-weight:500;">contact@a3qenerg.com</a>
+          </div>
+
+          <div>
+            <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#c8cac8; margin:0 0 0.3rem; font-weight:600;">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/ferenccsulak" target="_blank" rel="noopener" style="font-size:0.9375rem; color:#2E5233; text-decoration:none; font-weight:500;">Ferenc Csulak</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Advisory reminder -->
+      <div style="padding:1.5rem; background-color:#f0f2f0; border-radius:6px; border-left:3px solid #2E5233;">
+        <p style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:1rem; color:#173b1e; margin:0 0 0.5rem; line-height:1.55;">
+          "Giving back to our societies the know-how gathered and experienced."
+        </p>
+        <p style="font-size:0.8125rem; color:#3d3f3d; margin:0;">
+          Not sure where to start? <a href="/services" style="color:#2E5233; font-weight:600; text-decoration:none;">Browse the services →</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const success = document.getElementById('cf-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement)?.value?.trim(),
+      email: (form.elements.namedItem('email') as HTMLInputElement)?.value?.trim(),
+      subject: (form.elements.namedItem('subject') as HTMLSelectElement)?.value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement)?.value?.trim(),
+    };
+
+    if (!data.name || !data.email || !data.message) return;
+
+    // Wire up to your preferred form backend (Resend, Formspree, Netlify Forms, etc.)
+    console.log('[ContactForm] Submission:', data);
+
+    form.style.display = 'none';
+    if (success) success.style.display = 'block';
+  });
+</script>

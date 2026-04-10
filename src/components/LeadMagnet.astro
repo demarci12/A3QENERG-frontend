@@ -1,0 +1,80 @@
+---
+// LeadMagnet.astro
+// Email capture for "Free Strategic Energy Audit Guide" PDF
+---
+
+<section
+  style="background: linear-gradient(135deg, #2E5233 0%, #173b1e 100%); padding: 4rem 1.5rem;"
+  aria-label="Free Energy Audit Guide download"
+>
+  <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+
+    <!-- Eyebrow -->
+    <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#c8cac8; margin-bottom:1rem;">
+      Free Resource
+    </p>
+
+    <!-- Headline -->
+    <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.25rem); font-weight:700; color:#f9f9f8; line-height:1.25; margin-bottom:1rem;">
+      Free Strategic Energy Audit&nbsp;Guide
+    </h2>
+
+    <!-- Sub-copy -->
+    <p style="font-size:1rem; color:#e7e8e7; line-height:1.7; margin-bottom:2rem; max-width:540px; margin-left:auto; margin-right:auto;">
+      A practitioner's framework for assessing your organisation's energy transformation readiness — distilled from two decades of executive leadership across European utilities.
+    </p>
+
+    <!-- Form -->
+    <form
+      id="lead-magnet-form"
+      style="display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; max-width:520px; margin:0 auto;"
+      novalidate
+    >
+      <label for="lm-email" class="sr-only">Your email address</label>
+      <input
+        id="lm-email"
+        type="email"
+        name="email"
+        placeholder="Your business email"
+        required
+        autocomplete="email"
+        style="flex:1 1 260px; padding:0.75rem 1rem; font-size:0.9375rem; border:1px solid rgba(255,255,255,0.2); border-radius:4px; background:rgba(255,255,255,0.1); color:#f9f9f8; outline:none;"
+        onfocus="this.style.borderColor='rgba(255,255,255,0.6)'"
+        onblur="this.style.borderColor='rgba(255,255,255,0.2)'"
+      />
+      <button
+        type="submit"
+        style="flex:0 0 auto; padding:0.75rem 1.5rem; font-size:0.9375rem; font-weight:600; color:#173b1e; background-color:#f9f9f8; border:none; border-radius:4px; cursor:pointer; transition:background-color 0.2s; white-space:nowrap;"
+        onmouseover="this.style.backgroundColor='#e7e8e7'"
+        onmouseout="this.style.backgroundColor='#f9f9f8'"
+      >
+        Send Me the Guide →
+      </button>
+    </form>
+
+    <!-- Success / privacy note -->
+    <p id="lm-success" style="display:none; margin-top:1.25rem; color:#c8cac8; font-size:0.875rem;">
+      ✓ Check your inbox — your guide is on its way.
+    </p>
+    <p style="margin-top:1rem; font-size:0.75rem; color:#c8cac8;">
+      No spam. Unsubscribe at any time.
+    </p>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('lead-magnet-form');
+  const success = document.getElementById('lm-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = (form as HTMLFormElement).email?.value?.trim();
+    if (!email) return;
+
+    // Replace with your email service endpoint (Mailchimp, ConvertKit, etc.)
+    console.log('[LeadMagnet] Captured email:', email);
+
+    (form as HTMLFormElement).style.display = 'none';
+    if (success) success.style.display = 'block';
+  });
+</script>
