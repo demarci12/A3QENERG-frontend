@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import ferencPhoto from '../assets/ferenc-csulak.png';
 import LeadMagnet from '../components/LeadMagnet.astro';
 import Layout from '../layouts/Layout.astro';
 import { formatDate, getAuthorName, getCategories, getPosts, stripHtml } from '../utils/wordpress';
@@ -16,10 +18,19 @@ const [featured, ...archive] = posts;
   <section style="padding: 5rem 1.5rem 4rem; max-width:1200px; margin:0 auto;">
     <div style="max-width:800px;">
 
-      <!-- Eyebrow -->
-      <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; margin-bottom:1.25rem; font-weight:600;">
-        Penned by Ferenc Csulak
-      </p>
+      <!-- Author tag with photo -->
+      <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:1.25rem;">
+        <Image
+          src={ferencPhoto}
+          alt="Ferenc Csulak"
+          width={40}
+          height={40}
+          style="width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid #e7e8e7;"
+        />
+        <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#2E5233; font-weight:600; margin:0;">
+          Penned by Ferenc Csulak
+        </p>
+      </div>
 
       <!-- Hero Title -->
       <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(2.2rem,5vw,3.5rem); font-weight:700; color:#173b1e; line-height:1.15; margin-bottom:1.5rem;">
