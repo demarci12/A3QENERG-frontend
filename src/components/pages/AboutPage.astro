@@ -1,0 +1,142 @@
+---
+import { Image } from 'astro:assets';
+import ferencPhoto from '../../assets/ferenc-csulak.png';
+import Timeline from '../Timeline.astro';
+import Layout from '../../layouts/Layout.astro';
+import type { Lang, UITranslations } from '../../i18n/utils';
+
+interface Props { t: UITranslations; lang: Lang; }
+const { t, lang } = Astro.props;
+
+const localHref = (path: string) => lang === 'en' ? path : `/${lang}${path}`;
+const a = t.about;
+---
+
+<Layout title={`About Ferenc Csulak — ${t.header.tagline}`}
+  description={a.lead1}
+  lang={lang} t={t}>
+
+  <!-- HERO -->
+  <section style="padding:6rem 1.5rem 5rem; max-width:1160px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1fr auto; gap:5rem; align-items:start;">
+
+      <div style="max-width:620px;">
+        <p class="eyebrow" style="margin:0 0 1.5rem;">{a.eyebrow}</p>
+        <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(2.25rem,5vw,3.5rem); font-weight:600; color:#18191A; line-height:1.15; margin:0 0 2rem; letter-spacing:-0.01em;">
+          {a.headline}<br />
+          <em style="color:#2A5C34; font-style:italic;">{a.headlineEm}</em>
+        </h1>
+        <p style="font-size:1.125rem; color:#5A5D5A; line-height:1.8; margin:0 0 1.25rem;">{a.lead1}</p>
+        <p style="font-size:1.125rem; color:#5A5D5A; line-height:1.8; margin:0;">{a.lead2}</p>
+      </div>
+
+      <div class="about-portrait" style="flex-shrink:0;">
+        <div style="width:280px; height:340px; border-radius:4px; overflow:hidden; border:1px solid #E4E5E2;">
+          <Image src={ferencPhoto} alt="Ferenc Csulak" width={560} height={680}
+            style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" loading="eager" />
+        </div>
+        <div style="margin-top:1.25rem; padding:1.25rem; background:#F3F4F1; border-radius:3px;">
+          <p style="font-family:'Newsreader',Georgia,serif; font-size:1rem; font-weight:600; color:#18191A; margin:0 0 0.2rem;">Ferenc Csulak</p>
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:#2A5C34; margin:0; font-weight:500;">{t.header.tagline}</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width:1160px; margin:0 auto;" />
+
+  <!-- PHILOSOPHY -->
+  <section style="padding:5rem 1.5rem; max-width:1160px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#E4E5E2; border:1px solid #E4E5E2; border-radius:4px; overflow:hidden;">
+      {[a.philosophy.mission, a.philosophy.vision, a.philosophy.philosophy].map(item => (
+        <div style="padding:2.5rem; background:#FAFAF7;">
+          <p class="eyebrow" style="margin:0 0 1.25rem;">{item.label}</p>
+          <blockquote style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:1.0625rem; color:#18191A; line-height:1.7; margin:0; border-left:2px solid #2A5C34; padding-left:1.125rem;">
+            {item.quote}
+          </blockquote>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- BIO BODY -->
+  <section style="background:#F3F4F1; padding:5rem 1.5rem;">
+    <div style="max-width:1160px; margin:0 auto; display:grid; grid-template-columns:1fr 2fr; gap:5rem; align-items:start;">
+
+      <div style="position:sticky; top:80px;">
+        <p class="eyebrow" style="margin:0 0 2rem;">{a.stats.eyebrow}</p>
+        {a.stats.items.map(([num, label]) => (
+          <div style="padding:1.25rem 0; border-bottom:1px solid #E4E5E2;">
+            <p style="font-family:'Newsreader',Georgia,serif; font-size:2rem; font-weight:600; color:#2A5C34; margin:0; line-height:1; letter-spacing:-0.02em;">{num}</p>
+            <p style="font-size:0.8125rem; color:#5A5D5A; margin:0.25rem 0 0;">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div>
+        <p class="eyebrow" style="margin:0 0 1.5rem;">{a.bio.eyebrow}</p>
+        {a.bio.paragraphs.map(para => (
+          <p style="font-size:1.0625rem; color:#2A2B2A; line-height:1.85; margin:0 0 1.75rem;">{para}</p>
+        ))}
+        <div style="margin-top:2.5rem; padding:2rem; border:1px solid #E4E5E2; border-radius:3px; background:#FAFAF7;">
+          <p style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:1.125rem; color:#18191A; line-height:1.65; margin:0 0 1rem;">
+            {a.bio.blockquote}
+          </p>
+          <p style="font-size:0.8125rem; color:#9B9D9B; margin:0;">{a.bio.attribution}</p>
+        </div>
+        <div style="margin-top:2.5rem; display:flex; gap:0.875rem; flex-wrap:wrap;">
+          <a href={localHref('/contact')} class="btn-primary" style="font-size:0.9375rem;">{a.bio.cta1}</a>
+          <a href={localHref('/articles')} class="btn-outline" style="font-size:0.9375rem;">{a.bio.cta2}</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAREER TIMELINE -->
+  <section style="padding:5rem 1.5rem; max-width:1160px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1fr 2fr; gap:5rem; align-items:start;">
+      <div style="position:sticky; top:80px;">
+        <p class="eyebrow" style="margin:0 0 1rem;">{a.career.eyebrow}</p>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:600; color:#18191A; line-height:1.25; margin:0 0 1.25rem;">
+          {a.career.headline}
+        </h2>
+        <p style="font-size:0.9375rem; color:#5A5D5A; line-height:1.75; margin:0 0 2rem;">{a.career.body}</p>
+        <a href={localHref('/contact')} class="btn-outline" style="font-size:0.875rem;">{a.career.cta}</a>
+      </div>
+      <div>
+        <Timeline currentLabel={lang === 'hu' ? 'Jelenlegi' : lang === 'ro' ? 'Actual' : 'Current'} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="background:#18191A; padding:6rem 1.5rem; text-align:center;">
+    <div style="max-width:580px; margin:0 auto;">
+      <p class="eyebrow" style="color:#2A5C34; margin:0 0 1.25rem;">{a.ctaBand.eyebrow}</p>
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:600; color:#FAFAF7; line-height:1.2; margin:0 0 1.25rem;">
+        {a.ctaBand.headline}
+      </h2>
+      <p style="font-size:1rem; color:#9B9D9B; line-height:1.7; margin:0 0 2.5rem;">{a.ctaBand.sub}</p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.875rem;">
+        <a href={localHref('/services')}
+          style="padding:0.9rem 2rem; background:#2A5C34; color:#FAFAF7; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:3px; transition:background-color 0.2s;"
+          onmouseover="this.style.backgroundColor='#3D7048'" onmouseout="this.style.backgroundColor='#2A5C34'">{a.ctaBand.btn1}</a>
+        <a href={localHref('/contact')}
+          style="padding:0.9rem 2rem; background:transparent; color:#E4E5E2; font-size:0.9375rem; font-weight:500; text-decoration:none; border-radius:3px; border:1px solid #2A2B2A; transition:border-color 0.2s;"
+          onmouseover="this.style.borderColor='#5A5D5A'" onmouseout="this.style.borderColor='#2A2B2A'">{a.ctaBand.btn2}</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @media (max-width: 860px) { .about-portrait { display: none !important; } }
+  @media (max-width: 680px) {
+    div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+    div[style*="grid-template-columns:1fr 2fr"] { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    div[style*="position:sticky"] { position: static !important; }
+  }
+</style>

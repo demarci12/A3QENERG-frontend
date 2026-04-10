@@ -10,8 +10,13 @@ export default defineConfig({
 	adapter: vercel(),
 	integrations: [
 		react(),
-		sitemap(),
+		sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en-GB', hu: 'hu-HU', ro: 'ro-RO' } } }),
 	],
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'hu', 'ro'],
+		routing: { prefixDefaultLocale: false },
+	},
 	vite: {
 		plugins: [tailwindcss()],
 	},

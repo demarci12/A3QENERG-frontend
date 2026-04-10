@@ -1,0 +1,19 @@
+---
+import ArticlePage from '../../../components/pages/ArticlePage.astro';
+import { useTranslations } from '../../../i18n/utils';
+import { getPosts } from '../../../utils/wordpress';
+
+export async function getStaticPaths() {
+  const posts = await getPosts(100);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+if (!post) return Astro.redirect('/hu/articles', 302);
+
+const t = useTranslations('hu');
+---
+<ArticlePage t={t} lang="hu" post={post} />

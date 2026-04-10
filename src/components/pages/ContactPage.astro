@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { Lang, UITranslations } from '../../i18n/utils';
+
+interface Props { t: UITranslations; lang: Lang; }
+const { t, lang } = Astro.props;
+
+const c = t.contact;
+const cfId = `cf-${Math.random().toString(36).slice(2, 7)}`;
+---
+
+<Layout title={`Contact — Ferenc Csulak`}
+  description={c.sub}
+  lang={lang} t={t}>
+
+  <!-- HERO -->
+  <section style="padding:6rem 1.5rem 5rem; max-width:1160px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:end;">
+      <div>
+        <p class="eyebrow" style="margin:0 0 1.5rem;">{c.eyebrow}</p>
+        <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(2.25rem,5vw,3.25rem); font-weight:600; color:#18191A; line-height:1.18; margin:0; letter-spacing:-0.01em;">
+          {c.headline}<br />
+          <em style="color:#2A5C34; font-style:italic;">{c.headlineEm}</em>
+        </h1>
+      </div>
+      <div style="padding-bottom:0.5rem;">
+        <p style="font-size:1.0625rem; color:#5A5D5A; line-height:1.8; margin:0;">{c.sub}</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width:1160px; margin:0 auto;" />
+
+  <!-- CONTACT GRID -->
+  <section style="padding:5rem 1.5rem 6rem; max-width:1160px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr; gap:5rem; align-items:start;">
+
+    <!-- Form -->
+    <div>
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:1.5rem; font-weight:600; color:#18191A; margin:0 0 2rem; line-height:1.25;">{c.form.headline}</h2>
+
+      <form id={cfId} style="display:flex; flex-direction:column; gap:1.375rem;" novalidate>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+          <div>
+            <label for={`${cfId}-name`} style="display:block; font-size:0.8125rem; font-weight:500; color:#18191A; margin-bottom:0.4rem; letter-spacing:0.01em;">
+              {c.form.name} <span aria-hidden="true" style="color:#2A5C34;">*</span>
+            </label>
+            <input id={`${cfId}-name`} type="text" name="name" required autocomplete="name"
+              placeholder={c.form.namePlaceholder}
+              style="width:100%; padding:0.75rem 1rem; font-size:0.9375rem; border:1px solid #E4E5E2; border-radius:3px; background:#FAFAF7; color:#18191A; outline:none; transition:border-color 0.15s; font-family:inherit;"
+              onfocus="this.style.borderColor='#2A5C34'" onblur="this.style.borderColor='#E4E5E2'" />
+          </div>
+          <div>
+            <label for={`${cfId}-company`} style="display:block; font-size:0.8125rem; font-weight:500; color:#18191A; margin-bottom:0.4rem; letter-spacing:0.01em;">
+              {c.form.company}
+            </label>
+            <input id={`${cfId}-company`} type="text" name="company" autocomplete="organization"
+              placeholder={c.form.companyPlaceholder}
+              style="width:100%; padding:0.75rem 1rem; font-size:0.9375rem; border:1px solid #E4E5E2; border-radius:3px; background:#FAFAF7; color:#18191A; outline:none; transition:border-color 0.15s; font-family:inherit;"
+              onfocus="this.style.borderColor='#2A5C34'" onblur="this.style.borderColor='#E4E5E2'" />
+          </div>
+        </div>
+
+        <div>
+          <label for={`${cfId}-email`} style="display:block; font-size:0.8125rem; font-weight:500; color:#18191A; margin-bottom:0.4rem; letter-spacing:0.01em;">
+            {c.form.email} <span aria-hidden="true" style="color:#2A5C34;">*</span>
+          </label>
+          <input id={`${cfId}-email`} type="email" name="email" required autocomplete="email"
+            placeholder={c.form.emailPlaceholder}
+            style="width:100%; padding:0.75rem 1rem; font-size:0.9375rem; border:1px solid #E4E5E2; border-radius:3px; background:#FAFAF7; color:#18191A; outline:none; transition:border-color 0.15s; font-family:inherit;"
+            onfocus="this.style.borderColor='#2A5C34'" onblur="this.style.borderColor='#E4E5E2'" />
+        </div>
+
+        <div>
+          <label for={`${cfId}-subject`} style="display:block; font-size:0.8125rem; font-weight:500; color:#18191A; margin-bottom:0.4rem; letter-spacing:0.01em;">
+            {c.form.topic}
+          </label>
+          <select id={`${cfId}-subject`} name="subject"
+            style="width:100%; padding:0.75rem 1rem; font-size:0.9375rem; border:1px solid #E4E5E2; border-radius:3px; background:#FAFAF7; color:#18191A; outline:none; cursor:pointer; transition:border-color 0.15s; font-family:inherit; appearance:auto;"
+            onfocus="this.style.borderColor='#2A5C34'" onblur="this.style.borderColor='#E4E5E2'">
+            <option value="">{c.form.topicDefault}</option>
+            {c.form.topics.map(([value, label]) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label for={`${cfId}-message`} style="display:block; font-size:0.8125rem; font-weight:500; color:#18191A; margin-bottom:0.4rem; letter-spacing:0.01em;">
+            {c.form.situation} <span aria-hidden="true" style="color:#2A5C34;">*</span>
+          </label>
+          <textarea id={`${cfId}-message`} name="message" required rows="6"
+            placeholder={c.form.situationPlaceholder}
+            style="width:100%; padding:0.75rem 1rem; font-size:0.9375rem; border:1px solid #E4E5E2; border-radius:3px; background:#FAFAF7; color:#18191A; outline:none; resize:vertical; transition:border-color 0.15s; font-family:inherit; line-height:1.6;"
+            onfocus="this.style.borderColor='#2A5C34'" onblur="this.style.borderColor='#E4E5E2'"></textarea>
+        </div>
+
+        <div>
+          <button type="submit"
+            style="padding:0.875rem 2rem; background:#2A5C34; color:#FAFAF7; font-size:0.9375rem; font-weight:600; border:none; border-radius:3px; cursor:pointer; transition:background-color 0.2s; letter-spacing:0.01em; font-family:inherit;"
+            onmouseover="this.style.backgroundColor='#1A3D22'" onmouseout="this.style.backgroundColor='#2A5C34'">
+            {c.form.submit}
+          </button>
+        </div>
+
+        <p id={`${cfId}-success`} style="display:none; color:#2A5C34; font-size:0.9375rem; font-weight:500; padding:1rem; background:#F3F4F1; border-radius:3px; border-left:3px solid #2A5C34;">
+          {c.form.success}
+        </p>
+      </form>
+    </div>
+
+    <!-- Direct contact + info -->
+    <div style="display:flex; flex-direction:column; gap:2rem; padding-top:0.25rem;">
+
+      <div>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-size:1.25rem; font-weight:600; color:#18191A; margin:0 0 1.5rem; line-height:1.25;">{c.direct.headline}</h2>
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <p style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#9B9D9B; margin:0 0 0.3rem;">{c.direct.emailLabel}</p>
+            <a href="mailto:csulak.ferenc@a3qenerg.com" style="font-size:0.9375rem; color:#2A5C34; text-decoration:none; font-weight:500; transition:color 0.15s;" onmouseover="this.style.color='#1A3D22'" onmouseout="this.style.color='#2A5C34'">
+              csulak.ferenc@a3qenerg.com
+            </a>
+          </div>
+          <div>
+            <p style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#9B9D9B; margin:0 0 0.3rem;">{c.direct.linkedInLabel}</p>
+            <a href="https://www.linkedin.com/in/ferenccsulak" target="_blank" rel="noopener" style="font-size:0.9375rem; color:#2A5C34; text-decoration:none; font-weight:500; transition:color 0.15s;" onmouseover="this.style.color='#1A3D22'" onmouseout="this.style.color='#2A5C34'">
+              linkedin.com/in/ferenccsulak →
+            </a>
+          </div>
+          <div>
+            <p style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#9B9D9B; margin:0 0 0.3rem;">{c.direct.addressLabel}</p>
+            <p style="font-size:0.9375rem; color:#5A5D5A; margin:0; line-height:1.6; white-space:pre-line;">{c.direct.address}</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:1.25rem; background:#F3F4F1; border-radius:3px; border-left:2px solid #2A5C34;">
+        <p style="font-size:0.8125rem; font-weight:600; color:#18191A; margin:0 0 0.4rem;">{c.direct.languagesTitle}</p>
+        <p style="font-size:0.8125rem; color:#5A5D5A; margin:0 0 0.875rem; line-height:1.6;">{c.direct.languagesSub}</p>
+        <div style="display:flex; gap:0.4rem;">
+          {(['EN', 'RO', 'HU'] as const).map(l => (
+            <span style="font-size:0.625rem; font-weight:700; padding:0.2rem 0.5rem; border:1px solid #2A5C34; color:#2A5C34; border-radius:2px; letter-spacing:0.1em;">{l}</span>
+          ))}
+        </div>
+      </div>
+
+      <div style="padding:1.25rem; border:1px solid #E4E5E2; border-radius:3px;">
+        <p style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:0.9375rem; color:#18191A; margin:0 0 0.5rem; line-height:1.55;">{c.direct.responseQuote}</p>
+        <p style="font-size:0.75rem; color:#9B9D9B; margin:0;">{c.direct.responseAttr}</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</Layout>
+
+<script is:inline define:vars={{ formId: cfId }}>
+  const form = document.getElementById(formId);
+  const success = document.getElementById(`${formId}-success`);
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = form.elements.namedItem('name')?.value?.trim();
+    const email   = form.elements.namedItem('email')?.value?.trim();
+    const message = form.elements.namedItem('message')?.value?.trim();
+    if (!name || !email || !message) return;
+    console.log('[ContactForm]', { name, email, message });
+    form.style.display = 'none';
+    if (success) success.style.display = 'block';
+  });
+</script>
+
+<style>
+  @media (max-width: 860px) {
+    section[style*="grid-template-columns:2fr 1fr"] { grid-template-columns: 1fr !important; gap: 3rem !important; }
+    div[style*="grid-template-columns:1fr 1fr"][style*="gap:1.25rem"] { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 640px) {
+    section[style*="grid-template-columns:1fr 1fr"][style*="gap:5rem"] { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  }
+</style>

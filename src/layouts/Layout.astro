@@ -1,103 +1,89 @@
 ---
-// Layout.astro — root shell for all Ferenc Csulak pages
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header';
+import type { Lang, UITranslations } from '../i18n/utils';
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
-  lang?: string;
+  lang?: Lang;
+  t: UITranslations;
 }
 
-const { title, description, image, lang = 'en' } = Astro.props;
+const { title, description, image, lang = 'en', t } = Astro.props;
+
+const homeHref  = lang === 'en' ? '/' : `/${lang}`;
+const localHref = (path: string) => lang === 'en' ? path : `/${lang}${path}`;
 ---
 
-<html lang={lang}>
+<html lang={lang === 'en' ? 'en-GB' : lang === 'hu' ? 'hu-HU' : 'ro-RO'}>
   <head>
     <BaseHead title={title} description={description} image={image} lang={lang} />
   </head>
   <body class="flex flex-col min-h-screen" style="background-color:#FAFAF7;">
 
-    <Header client:load />
+    <Header client:load lang={lang} t={t} />
 
     <main class="flex-1">
       <slot />
     </main>
 
-    <!-- ═══════════════════════════════════ FOOTER -->
+    <!-- ═══ FOOTER -->
     <footer style="background-color:#18191A; color:#E4E5E2;">
       <div style="max-width:1160px; margin:0 auto; padding:4rem 1.5rem 2.5rem;">
 
         <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:3.5rem; margin-bottom:3.5rem;">
 
-          <!-- Brand -->
           <div style="max-width:340px;">
-            <a href="/" style="text-decoration:none;">
+            <a href={homeHref} style="text-decoration:none;">
               <p style="font-family:'Newsreader',Georgia,serif; font-size:1.25rem; font-weight:600; color:#FAFAF7; margin:0 0 0.2rem; letter-spacing:0.01em;">Ferenc Csulak</p>
-              <p style="font-size:0.625rem; font-weight:500; text-transform:uppercase; letter-spacing:0.16em; color:#2A5C34; margin:0 0 1.25rem;">Energy &amp; Leadership Advisor</p>
+              <p style="font-size:0.625rem; font-weight:500; text-transform:uppercase; letter-spacing:0.16em; color:#2A5C34; margin:0 0 1.25rem;">{t.header.tagline}</p>
             </a>
-            <p style="font-size:0.875rem; line-height:1.7; color:#9B9D9B; margin:0 0 1.25rem;">
-              40 years shaping European energy. Strategic advisor to executives navigating transformation, leadership, and sustainable performance.
-            </p>
+            <p style="font-size:0.875rem; line-height:1.7; color:#9B9D9B; margin:0 0 1.25rem;">{t.footer.bio}</p>
             <p style="font-size:0.8125rem; color:#9B9D9B; margin:0; line-height:1.6;">
-              A3QENERG Consulting<br />
+              {t.footer.firm}<br />
               8045 Isztimér, Hungary
             </p>
           </div>
 
-          <!-- Navigation -->
           <div>
-            <h4 style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#5A5D5A; margin:0 0 1.25rem;">Navigate</h4>
+            <h4 style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#5A5D5A; margin:0 0 1.25rem;">{t.footer.navigate}</h4>
             <nav style="display:flex; flex-direction:column; gap:0.6rem;">
-              {[
-                ['/', 'Home'],
-                ['/about-us', 'About'],
-                ['/articles', 'Articles'],
-                ['/services', 'Work With Me'],
-                ['/contact', 'Contact'],
-              ].map(([href, label]) => (
-                <a
-                  href={href}
-                  style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
-                  onmouseover="this.style.color='#E4E5E2'"
-                  onmouseout="this.style.color='#9B9D9B'"
-                >
+              {([
+                [homeHref,                t.nav.home],
+                [localHref('/about-us'), t.nav.about],
+                [localHref('/articles'), t.nav.articles],
+                [localHref('/services'), t.nav.workWithMe],
+                [localHref('/contact'),  t.nav.contact],
+              ] as [string, string][]).map(([href, label]) => (
+                <a href={href} style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
+                   onmouseover="this.style.color='#E4E5E2'" onmouseout="this.style.color='#9B9D9B'">
                   {label}
                 </a>
               ))}
             </nav>
           </div>
 
-          <!-- Connect -->
           <div>
-            <h4 style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#5A5D5A; margin:0 0 1.25rem;">Connect</h4>
+            <h4 style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#5A5D5A; margin:0 0 1.25rem;">{t.footer.connect}</h4>
             <div style="display:flex; flex-direction:column; gap:0.6rem;">
-              <a
-                href="mailto:csulak.ferenc@a3qenerg.com"
-                style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
-                onmouseover="this.style.color='#E4E5E2'"
-                onmouseout="this.style.color='#9B9D9B'"
-              >
+              <a href="mailto:csulak.ferenc@a3qenerg.com" style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
+                 onmouseover="this.style.color='#E4E5E2'" onmouseout="this.style.color='#9B9D9B'">
                 csulak.ferenc@a3qenerg.com
               </a>
-              <a
-                href="https://www.linkedin.com/in/ferenccsulak"
-                target="_blank"
-                rel="noopener"
-                style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s; display:flex; align-items:center; gap:0.4rem;"
-                onmouseover="this.style.color='#E4E5E2'"
-                onmouseout="this.style.color='#9B9D9B'"
-              >
+              <a href="https://www.linkedin.com/in/ferenccsulak" target="_blank" rel="noopener"
+                 style="color:#9B9D9B; text-decoration:none; font-size:0.875rem; transition:color 0.15s;"
+                 onmouseover="this.style.color='#E4E5E2'" onmouseout="this.style.color='#9B9D9B'">
                 LinkedIn →
               </a>
             </div>
 
             <div style="margin-top:1.5rem; padding:1rem 1.125rem; background:rgba(42,92,52,0.12); border-radius:4px; border-left:2px solid #2A5C34;">
-              <p style="font-size:0.75rem; color:#9B9D9B; margin:0 0 0.5rem; line-height:1.5;">Available in</p>
+              <p style="font-size:0.75rem; color:#9B9D9B; margin:0 0 0.5rem; line-height:1.5;">{t.footer.availableIn}</p>
               <div style="display:flex; gap:0.4rem;">
-                {['EN', 'RO', 'HU'].map(lang => (
-                  <span style="font-size:0.625rem; font-weight:700; padding:0.2rem 0.45rem; border:1px solid #2A5C34; color:#2A5C34; border-radius:2px; letter-spacing:0.08em;">{lang}</span>
+                {(['EN', 'RO', 'HU'] as const).map(l => (
+                  <span style="font-size:0.625rem; font-weight:700; padding:0.2rem 0.45rem; border:1px solid #2A5C34; color:#2A5C34; border-radius:2px; letter-spacing:0.08em;">{l}</span>
                 ))}
               </div>
             </div>
@@ -105,10 +91,9 @@ const { title, description, image, lang = 'en' } = Astro.props;
 
         </div>
 
-        <!-- Bottom bar -->
         <div style="border-top:1px solid #2A2B2A; padding-top:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
           <p style="font-size:0.75rem; color:#5A5D5A; margin:0;">
-            &copy; {new Date().getFullYear()} Ferenc Csulak / A3QENERG. All rights reserved.
+            &copy; {new Date().getFullYear()} Ferenc Csulak / A3QENERG. {t.footer.copyright}
           </p>
           <blockquote style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:0.875rem; color:#5A5D5A; margin:0; border:none; padding:0;">
             "The most dangerous kind of waste is the waste we do not recognize." — Shigeo Shingo

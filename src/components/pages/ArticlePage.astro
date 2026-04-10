@@ -1,0 +1,187 @@
+---
+import { Image } from 'astro:assets';
+import ferencPhoto from '../../assets/ferenc-csulak.png';
+import Layout from '../../layouts/Layout.astro';
+import {
+  formatDate,
+  getCategories,
+  getFeaturedImage,
+  getPosts,
+  stripHtml,
+} from '../../utils/wordpress';
+import type { Lang, UITranslations } from '../../i18n/utils';
+
+interface Props {
+  t: UITranslations;
+  lang: Lang;
+  post: Awaited<ReturnType<typeof getPosts>>[number];
+}
+const { t, lang, post } = Astro.props;
+
+const localHref = (path: string) => lang === 'en' ? path : `/${lang}${path}`;
+const ar = t.article;
+
+const featuredImg = getFeaturedImage(post);
+const categories = getCategories(post);
+const readingMinutes = Math.max(1, Math.ceil(stripHtml(post.content.rendered).split(/\s+/).length / 200));
+
+const allPosts = await getPosts(10);
+const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+---
+
+<Layout
+  title={`${stripHtml(post.title.rendered)} — Ferenc Csulak`}
+  description={stripHtml(post.excerpt.rendered).slice(0, 160)}
+  image={featuredImg?.source_url}
+  lang={lang} t={t}>
+
+  <!-- ARTICLE HEADER -->
+  <header style="padding:4rem 1.5rem 0; max-width:1160px; margin:0 auto;">
+    <nav aria-label="Breadcrumb" style="font-size:0.8125rem; color:#9B9D9B; margin-bottom:2.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+      <a href={localHref('/')} style="color:#9B9D9B; text-decoration:none; transition:color 0.15s;" onmouseover="this.style.color='#2A5C34'" onmouseout="this.style.color='#9B9D9B'">{ar.home}</a>
+      <span aria-hidden="true" style="color:#C8CAC5;">/</span>
+      <a href={localHref('/articles')} style="color:#9B9D9B; text-decoration:none; transition:color 0.15s;" onmouseover="this.style.color='#2A5C34'" onmouseout="this.style.color='#9B9D9B'">{ar.breadcrumbArticles}</a>
+      <span aria-hidden="true" style="color:#C8CAC5;">/</span>
+      <span style="color:#5A5D5A;" aria-current="page">{stripHtml(post.title.rendered)}</span>
+    </nav>
+
+    {categories.length > 0 && (
+      <div style="margin-bottom:1.25rem; display:flex; flex-wrap:wrap; gap:0.4rem;">
+        {categories.map((cat) => (
+          <span style="font-size:0.625rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; background:#F3F4F1; color:#2A5C34; padding:0.25rem 0.65rem; border-radius:2px; border:1px solid #E4E5E2;">
+            {cat}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <h1 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.875rem,4.5vw,3rem); font-weight:600; color:#18191A; line-height:1.18; max-width:760px; margin:0 0 2rem; letter-spacing:-0.01em;">
+      {post.title.rendered}
+    </h1>
+
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1rem; font-size:0.8125rem; color:#9B9D9B; padding-bottom:2.5rem; border-bottom:1px solid #E4E5E2;">
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <Image src={ferencPhoto} alt="Ferenc Csulak" width={28} height={28}
+          style="width:28px; height:28px; border-radius:50%; object-fit:cover; object-position:center top; flex-shrink:0; border:1px solid #E4E5E2;" />
+        <span style="color:#5A5D5A; font-weight:500;">{ar.author}</span>
+      </div>
+      <span aria-hidden="true" style="color:#C8CAC5;">·</span>
+      <time datetime={post.date}>{formatDate(post.date)}</time>
+      <span aria-hidden="true" style="color:#C8CAC5;">·</span>
+      <span>{readingMinutes} {ar.minRead}</span>
+    </div>
+  </header>
+
+  <!-- FEATURED IMAGE -->
+  {featuredImg && (
+    <div style="max-width:1160px; margin:0 auto; padding:3rem 1.5rem 0;">
+      <img
+        src={featuredImg.source_url}
+        alt={featuredImg.alt_text || stripHtml(post.title.rendered)}
+        width={featuredImg.media_details?.width ?? 1160}
+        height={featuredImg.media_details?.height ?? 580}
+        style="width:100%; height:auto; max-height:520px; object-fit:cover; border-radius:4px; border:1px solid #E4E5E2;"
+        loading="eager"
+      />
+    </div>
+  )}
+
+  <!-- ARTICLE BODY + SIDEBAR -->
+  <div style="padding:4rem 1.5rem 6rem; max-width:1160px; margin:0 auto; display:grid; grid-template-columns:680px 1fr; gap:5rem; align-items:start;">
+
+    <article>
+      <div class="article-body" set:html={post.content.rendered} />
+
+      <!-- Tags -->
+      {(() => {
+        const tags = post._embedded?.['wp:term']?.[1];
+        return tags && tags.length > 0 ? (
+          <div style="margin-top:3.5rem; padding-top:2rem; border-top:1px solid #E4E5E2;">
+            <p style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#9B9D9B; margin:0 0 0.875rem;">{ar.topics}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              {tags.map((tag) => (
+                <span style="font-size:0.8125rem; color:#5A5D5A; background:#F3F4F1; padding:0.25rem 0.7rem; border-radius:2px; border:1px solid #E4E5E2;">{tag.name}</span>
+              ))}
+            </div>
+          </div>
+        ) : null;
+      })()}
+
+      <!-- Author card -->
+      <div style="margin-top:3.5rem; padding:2rem; border:1px solid #E4E5E2; border-radius:4px; background:#F3F4F1; display:flex; gap:1.5rem; align-items:flex-start;">
+        <Image src={ferencPhoto} alt="Ferenc Csulak" width={56} height={56}
+          style="width:56px; height:56px; border-radius:50%; object-fit:cover; object-position:center top; flex-shrink:0; border:1px solid #E4E5E2;" />
+        <div>
+          <p style="font-family:'Newsreader',Georgia,serif; font-size:1rem; font-weight:600; color:#18191A; margin:0 0 0.25rem;">{ar.author}</p>
+          <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:#2A5C34; margin:0 0 0.75rem; font-weight:500;">{ar.authorCard.role}</p>
+          <p style="font-size:0.875rem; color:#5A5D5A; line-height:1.65; margin:0 0 0.875rem;">{ar.authorCard.bio}</p>
+          <a href={localHref('/about-us')} style="font-size:0.8125rem; font-weight:600; color:#2A5C34; text-decoration:none; transition:color 0.15s;" onmouseover="this.style.color='#1A3D22'" onmouseout="this.style.color='#2A5C34'">
+            {ar.authorCard.bioLink}
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="article-sidebar" style="display:none; position:sticky; top:80px;">
+      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+        <div style="padding:1.75rem; border:1px solid #E4E5E2; border-radius:4px; background:#FAFAF7;">
+          <p style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#9B9D9B; margin:0 0 1rem;">{ar.sidebar.workWithLabel}</p>
+          <p style="font-size:0.875rem; color:#5A5D5A; line-height:1.65; margin:0 0 1.25rem;">{ar.sidebar.workWithBio}</p>
+          <a href={localHref('/services')} style="display:block; padding:0.65rem 1rem; background:#2A5C34; color:#FAFAF7; font-size:0.875rem; font-weight:600; text-decoration:none; border-radius:3px; text-align:center; margin-bottom:0.6rem; transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#1A3D22'" onmouseout="this.style.backgroundColor='#2A5C34'">{ar.sidebar.viewServices}</a>
+          <a href={localHref('/contact')} style="display:block; padding:0.65rem 1rem; background:transparent; color:#2A5C34; font-size:0.875rem; font-weight:600; text-decoration:none; border-radius:3px; text-align:center; border:1px solid #2A5C34; transition:all 0.2s;" onmouseover="this.style.backgroundColor='#2A5C34'; this.style.color='#FAFAF7'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2A5C34'">{ar.sidebar.bookCall}</a>
+        </div>
+        <div style="padding:1.75rem; border:1px solid #E4E5E2; border-radius:4px; background:#F3F4F1;">
+          <p style="font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#9B9D9B; margin:0 0 0.75rem;">{ar.sidebar.freeLabel}</p>
+          <p style="font-family:'Newsreader',Georgia,serif; font-size:1rem; font-weight:600; color:#18191A; margin:0 0 0.75rem; line-height:1.35;">{ar.sidebar.freeTitle}</p>
+          <p style="font-size:0.8125rem; color:#5A5D5A; line-height:1.6; margin:0 0 1.125rem;">{ar.sidebar.freeSub}</p>
+          <a href={localHref('/#lead-magnet')} style="font-size:0.875rem; font-weight:600; color:#2A5C34; text-decoration:none; transition:color 0.15s;" onmouseover="this.style.color='#1A3D22'" onmouseout="this.style.color='#2A5C34'">{ar.sidebar.freeLink}</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  {related.length > 0 && (
+    <section style="border-top:1px solid #E4E5E2; padding:4rem 1.5rem; max-width:1160px; margin:0 auto;">
+      <p class="eyebrow" style="margin:0 0 2rem;">{ar.related}</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#E4E5E2; border:1px solid #E4E5E2; border-radius:4px; overflow:hidden;">
+        {related.map((rp) => (
+          <a href={localHref(`/articles/${rp.slug}`)}
+            style="display:flex; flex-direction:column; gap:0.75rem; text-decoration:none; color:inherit; padding:1.75rem; background:#FAFAF7; transition:background-color 0.15s;"
+            onmouseover="this.style.backgroundColor='#F3F4F1'" onmouseout="this.style.backgroundColor='#FAFAF7'">
+            {getCategories(rp)[0] && (
+              <p style="font-size:0.625rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#2A5C34; margin:0;">{getCategories(rp)[0]}</p>
+            )}
+            <h3 style="font-family:'Newsreader',Georgia,serif; font-size:1.0625rem; font-weight:600; color:#18191A; margin:0; line-height:1.3; flex:1;">{rp.title.rendered}</h3>
+            <time datetime={rp.date} style="font-size:0.75rem; color:#9B9D9B; margin-top:auto;">{formatDate(rp.date)}</time>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- BOTTOM CTA -->
+  <section style="background:#18191A; padding:5rem 1.5rem; text-align:center;">
+    <div style="max-width:520px; margin:0 auto;">
+      <p class="eyebrow" style="color:#2A5C34; margin:0 0 1rem;">{ar.cta.eyebrow}</p>
+      <h2 style="font-family:'Newsreader',Georgia,serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:600; color:#FAFAF7; margin:0 0 1.25rem; line-height:1.25;">{ar.cta.headline}</h2>
+      <p style="font-size:0.9375rem; color:#9B9D9B; line-height:1.7; margin:0 0 2rem;">{ar.cta.sub}</p>
+      <a href={localHref('/#lead-magnet')}
+        style="display:inline-block; padding:0.875rem 2rem; background:#2A5C34; color:#FAFAF7; font-size:0.9375rem; font-weight:600; text-decoration:none; border-radius:3px; transition:background-color 0.2s;"
+        onmouseover="this.style.backgroundColor='#3D7048'" onmouseout="this.style.backgroundColor='#2A5C34'">
+        {ar.cta.btn}
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @media (min-width: 900px) { .article-sidebar { display: block !important; } }
+  @media (max-width: 900px) {
+    div[style*="grid-template-columns:680px 1fr"] { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  }
+</style>
