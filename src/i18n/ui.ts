@@ -36,7 +36,7 @@ const en = {
     },
     whatIDo: {
       eyebrow: 'What I Do',
-      headline: 'Practical expertise, delivered with honesty.',
+      headline: 'Practical expertise, delivered for all services proposed.',
       viewAll: 'View All Services',
     },
     focusAreas: [
@@ -49,7 +49,7 @@ const en = {
       {
         n: '02',
         title: 'Executive Leadership',
-        body: 'A new toolkit for middle and senior managers — practical frameworks proven across five countries and six executive roles in European utilities.',
+        body: 'A new toolkit for middle and senior managers — practical frameworks proven across several European countries and in several leading roles.',
         href: '/services#leadership-on-top',
       },
       {
@@ -62,11 +62,11 @@ const en = {
     advisor: {
       eyebrow: 'The Advisor',
       headline: "A career built at the frontier of European energy.",
-      body1: 'I have served as Executive Director at Atregenerg Kft., and as General Manager and CEO at Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli — building a career across important gas & power grids in Romania and Hungary.',
-      body2: 'Through A3QENERG, I now channel that experience into advisory work, mentoring, and published insights — giving back the knowledge gathered over a career spent transforming organisations under pressure.',
+      body1: 'I have served as Executive Director at Atreqenerg Kft., and as General Manager and CEO at Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli — building a career across important gas & power grids in Romania and Hungary.',
+      body2: 'Through Atreqenerg, I now channel that experience into advisory work, mentoring, and published insights — giving back the knowledge gathered over a career spent transforming organisations under pressure.',
       cta: 'Full Biography',
       roles: [
-        ['Executive Director', 'Atregenerg Kft.', 'Jul 2022 – Present'],
+        ['Executive Director', 'Atreqenerg Kft.', 'Jul 2022 – Present'],
         ['CEO', 'Delgaz Grid', '2017 – 2022'],
         ['CEO', 'E.ON Hungária Zrt.', '2015 – 2017'],
         ['Deputy General Director', 'E.ON Moldova', '2004 – 2008'],
@@ -88,9 +88,9 @@ const en = {
   about: {
     eyebrow: 'About',
     headline: 'I have spent my career',
-    headlineEm: 'inside the machine.',
+    headlineEm: 'in the energy industry.',
     lead1: "As a General Manager, CEO, and Executive Director across important gas & power grids in two Central and Eastern European countries, I did not observe transformation from the outside — I led it, lived it, and was accountable for it.",
-    lead2: 'Today, through A3QENERG, I put that experience at the service of executives and organisations that are navigating the same pressures I know first-hand.',
+    lead2: 'Today, through Atreqenerg, I put that experience at the service of executives and organisations that are navigating the same challenges I know first-hand.',
     philosophy: {
       mission: { label: 'Mission', quote: '"Giving back to our societies the know-how gathered and experienced — being part of a more educated and prepared society for the existing and upcoming challenges."' },
       vision:  { label: 'Vision',  quote: '"Living in a sustainable, resilient, less anxious, more cooperative and fair world."' },
@@ -109,13 +109,13 @@ const en = {
     bio: {
       eyebrow: 'Biography',
       paragraphs: [
-        'Ferenc Csulak is a senior energy executive with over 40 years of experience across the European gas and power sector. He has held executive positions — including Executive Director, General Manager, and CEO — at Atregenerg Kft., Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli, working across important gas & power grids in two Central and Eastern European countries.',
+        'Ferenc Csulak is a senior energy executive with over 40 years of experience across the European gas and power sector. He has held executive positions — including Executive Director, General Manager, and CEO — at Atreqenerg Kft., Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli, working across important gas & power grids in two Central and Eastern European countries.',
         'His career spans the full arc of European energy transformation: from the privatisation era of the 1990s through the regulatory modernisation of the 2000s, to today\'s twin pressures of decarbonisation and energy security. He has operated in five countries, navigating distinct regulatory frameworks, cultures, and organisational contexts.',
         'Ferenc brings deep expertise in HSE and safety culture, ESG governance, multi-generational workforce management, and strategic planning. He is fluent in English, Romanian, and Hungarian — a practical advantage in Central and Eastern European markets where cultural nuance shapes outcomes.',
-        'Through A3QENERG, he now channels this accumulated knowledge into advisory engagements, mentoring programmes, and published strategic commentary. His approach is direct, evidence-based, and built on the conviction that fun and genuine learning are not in opposition to high performance — they are its preconditions.',
+        'Through Atreqenerg, he now channels this accumulated knowledge into advisory engagements, mentoring programmes, and published strategic commentary. His approach is direct, evidence-based, and built on the conviction that fun and genuine learning are not in opposition to high performance — they are its preconditions.',
       ],
       blockquote: '"We activate specialists across Europe to provide support, inspire new ideas, enhance client strengths, and achieve better performance — with less wasted energy, time, and resource."',
-      attribution: '— Ferenc Csulak, Founder of A3QENERG',
+      attribution: '— Ferenc Csulak, Founder of Atreqenerg',
       cta1: 'Book a Consultation',
       cta2: 'Read the Articles',
     },
@@ -284,7 +284,7 @@ const en = {
       emailLabel: 'Email',
       linkedInLabel: 'LinkedIn',
       addressLabel: 'Address',
-      address: 'A3QENERG Consulting\n8045 Isztimér, Hungary',
+      address: 'Atreqenerg Kft.\n8045 Isztimér, Sport u. 26. sz.\nHungary',
       languagesTitle: 'Available in three languages',
       languagesSub: 'English, Romanian, and Hungarian.',
       responseQuote: '"I respond personally to every serious enquiry — usually within 48 hours."',
@@ -329,9 +329,9 @@ const hu: typeof en = {
     eyebrow: 'Energiaipar · Vezetés · ESG',
     headline: 'Negyven év az európai',
     headlineEm: 'energiaszektor formálásában.',
-    sub: 'Vezető vállalatoknak és szervezeteknek nyújtok tanácsadást stratégiai átalakulás, kiváló vezetés és ESG-irányítás terén — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál szerzett, több mint négydekádes aktív részvételre alapozva.',
-    cta1: 'Tanácsadás foglalása',
-    cta2: 'Csulák Ferencről →',
+    sub: 'Vezető vállalatoknak és szervezeteknek nyújtok tanácsadást stratégiai átalakulás, kiváló vezetés és ESG-irányítás terén — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál szerzett, több mint négy évtizedes aktív részvételre alapozva.',
+    cta1: 'Tájékozodó első megbeszélés foglalása',
+    cta2: 'Csulak Ferencről →',
     stats: {
       cSuite: 'C-szintű szerepkörök',
       countries: 'Ország',
@@ -340,20 +340,20 @@ const hu: typeof en = {
     },
     whatIDo: {
       eyebrow: 'Mit kínálok',
-      headline: 'Valódi tapasztalat, becsületesen nyújtva.',
+      headline: 'Valódi gyakorlati tapasztalat, teljességgel minden témában.',
       viewAll: 'Összes szolgáltatás',
     },
     focusAreas: [
       {
         n: '01',
         title: 'Stratégiai útiterv',
-        body: 'A víziótól a végrehajtásig — segítem a vezető csapatokat közép- és hosszú távú stratégiai útiterv kidolgozásában, amely egyértelműséget, összhangot és lendületet teremt.',
+        body: 'A víziótól a végrehajtásig — együtt dolgozom a vezető csapatokkal közép- és hosszú távú stratégiai útiterv kidolgozásán, amely egyértelműséget, összhangot és lendületet teremt.',
         href: '/hu/services#roadmap',
       },
       {
         n: '02',
         title: 'Felsővezetői fejlesztés',
-        body: 'Végigvezetem a közép- és felsővezetőket egy új eszközkészlet megszerzésén — öt országban és hat vezető szerepkörben bevált, gyakorlati irányítási keretrendszerek alapján.',
+        body: 'Végigvezetem a közép- és felsővezetőket egy új eszközkészlet megszerzésén — több ország és több vezető szerepkörben bevált, gyakorlati irányítási keretrendszerek alapján.',
         href: '/hu/services#leadership-on-top',
       },
       {
@@ -366,11 +366,11 @@ const hu: typeof en = {
     advisor: {
       eyebrow: 'A tanácsadóról',
       headline: 'Európa energiaszektorának frontvonalán felépített pályafutás.',
-      body1: 'Ügyvezető igazgatóként az Atregenerg Kft.-nél, vezérigazgatóként és általános igazgatóként a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál tevékenykedtem — pályafutásomat Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál építettem fel.',
+      body1: 'Ügyvezető igazgatóként az Atreqenerg Kft.-nél, vezérigazgatóként és általános igazgatóként a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál tevékenykedtem — pályafutásomat Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál építettem fel.',
       body2: 'Az A3QENERG keretein belül ezt a tapasztalatot tanácsadói munkába, mentorprogramokba és publikált elemzésekbe forgatom vissza.',
       cta: 'Teljes életrajz',
       roles: [
-        ['Ügyvezető igazgató', 'Atregenerg Kft.', '2022. júl. – jelenleg'],
+        ['Ügyvezető igazgató', 'Atreqenerg Kft.', '2022. júl. – jelenleg'],
         ['Vezérigazgató', 'Delgaz Grid', '2017 – 2022'],
         ['Vezérigazgató', 'E.ON Hungária Zrt.', '2015 – 2017'],
         ['Általános igazgató-helyettes', 'E.ON Moldova', '2004 – 2008'],
@@ -413,14 +413,14 @@ const hu: typeof en = {
     bio: {
       eyebrow: 'Életrajz',
       paragraphs: [
-        'Csulák Ferenc vezető energetikai szakember, több mint 40 éves tapasztalattal az európai gáz- és villamosenergia-szektorban. Ügyvezető igazgatói, vezérigazgatói és általános igazgatói pozíciókat töltött be az Atregenerg Kft.-nél, a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál nem külső szemlélőként, hanem aktív résztvevőként.',
+        'Csulak Ferenc vezető energetikai szakember, több mint 40 éves tapasztalattal az európai gáz- és villamosenergia-szektorban. Ügyvezető igazgatói, vezérigazgatói és általános igazgatói pozíciókat töltött be az Atreqenerg Kft.-nél, a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál nem külső szemlélőként, hanem aktív résztvevőként.',
         'Pályafutása az európai energiaátalakulás teljes ívét felöleli: az 1990-es évek privatizációs korszakától a 2000-es évek szabályozási modernizációján át a mai dekarbonizációs és energiabiztonsági kettős kihívásig. Öt országban tevékenykedett.',
-        'Csulák Ferenc mély szakértelemmel rendelkezik a munkavédelmi és biztonsági kultúra, az ESG-irányítás, a többgenerációs munkaerő-menedzsment és a stratégiai tervezés terén. Folyékonyan kommunikál angolul, románul és magyarul.',
+        'Csulak Ferenc mély szakértelemmel rendelkezik a munkavédelmi és biztonsági kultúra, az ESG-irányítás, a többgenerációs munkaerő-menedzsment és a stratégiai tervezés terén. Folyékonyan kommunikál angolul, románul és magyarul.',
         'Az A3QENERG keretein belül ezt a felhalmozott tudást tanácsadói megbízásokba, mentorprogramokba és közzétett stratégiai elemzésekbe forgatja vissza. Megközelítése közvetlen, bizonyítékokra épülő.',
       ],
       blockquote: '"Európai szakértőket mozgósítunk a támogatáshoz, az új ötletek inspirálásához, az ügyfél erősségeinek fejlesztéséhez és a jobb teljesítmény eléréséhez — kevesebb pazarolt energiával, idővel és erőforrással."',
-      attribution: '— Csulák Ferenc, az A3QENERG alapítója',
-      cta1: 'Tanácsadás foglalása',
+      attribution: '— Csulak Ferenc, az Atreqenerg alapítója',
+      cta1: 'Tájékozodó első megbeszélés foglalása',
       cta2: 'Cikkek olvasása',
     },
     career: {
@@ -450,7 +450,7 @@ const hu: typeof en = {
       headline: 'Foglaljon 20 perces első megbeszélést (discovery call).',
       body: 'Kötelezettségmentes, 20 perces első megbeszélés a helyzete megismerésére és annak feltérképezésére, hogy van-e lehetséges együttműködés. Az alábbi lépések mentén haladunk — egyszerűen, prezentáció nélkül.',
       btn1: 'Megbeszélés foglalása',
-      btn2: 'Csulák Ferencről',
+      btn2: 'Csulak Ferencről',
       steps: [
         ['Mondja el helyzetét', 'Röviden írja le a kihívást vagy lehetőséget, amellyel szembesül.'],
         ['Megbeszélünk', 'Egy 20 perces hívás — prezentáció nélkül. Csak őszinte párbeszéd.'],
@@ -531,7 +531,7 @@ const hu: typeof en = {
   article: {
     home: 'Főoldal',
     breadcrumbArticles: 'Cikkek',
-    author: 'Csulák Ferenc',
+    author: 'Csulak Ferenc',
     minRead: 'perc olvasás',
     topics: 'Témák',
     authorCard: {
@@ -588,17 +588,17 @@ const hu: typeof en = {
       emailLabel: 'E-mail',
       linkedInLabel: 'LinkedIn',
       addressLabel: 'Cím',
-      address: 'A3QENERG Consulting\n8045 Isztimér, Magyarország',
+      address: 'Atreqenerg Kft.\n8045 Isztimér, Sport u. 26. sz.\nMagyarország',
       languagesTitle: 'Három nyelven elérhető',
       languagesSub: 'Angolul, románul és magyarul.',
       responseQuote: '"Minden komoly megkeresésre személyesen válaszolok — általában 48 órán belül."',
-      responseAttr: '— Csulák Ferenc',
+      responseAttr: '— Csulak Ferenc',
     },
   },
   leadMagnet: {
     eyebrow: 'Ingyenes anyag',
     headline: 'Stratégiai Energiavizsgálati Útmutató',
-    sub: 'Gyakorlati keretrendszer szervezete energiaátalakulási felkészültségének felméréséhez — négydekádes végrehajtói tapasztalatból desztillálva.',
+    sub: 'Gyakorlati keretrendszer szervezete energiaátalakulási felkészültségének felméréséhez — négy évtizedes végrehajtói tapasztalatból desztillálva.',
     bullets: ['Átalakulási felkészültségi diagnosztika', 'Hiányelemzési módszertan', 'Priorizálási keretrendszer energetikai vezetők számára'],
     quote: '"Ingyenes, mert a tudás a szektorhoz tartozik — nem zárható fizetőfal mögé."',
     namePlaceholder: 'Az Ön neve',
@@ -633,7 +633,7 @@ const ro: typeof en = {
     eyebrow: 'Industria energetică · Leadership · ESG',
     headline: 'Patruzeci de ani modelând',
     headlineEm: 'viitorul energetic al Europei.',
-    sub: 'Consiliez executivi și organizații în transformare strategică, excelență în leadership și guvernanță ESG — bazat pe decenii de participare activă în rețele importante de gaz și energie electrică din două țări din Europa Centrală și de Est.',
+    sub: 'Consiliez executivi și organizații în transformările strategice, excelență în leadership și guvernanță ESG — bazat pe patru decenii de participare activă în companii importante de rețele de gaz și de energia electrică din două țări din Europa Centrală și de Est.',
     cta1: 'Rezervați o consultație',
     cta2: 'Despre Ferenc →',
     stats: {
@@ -644,20 +644,20 @@ const ro: typeof en = {
     },
     whatIDo: {
       eyebrow: 'Ce ofer',
-      headline: 'Expertiză autentică, oferită cu onestitate.',
+      headline: 'Expertiză autentică, oferită cu generozitate.',
       viewAll: 'Toate serviciile',
     },
     focusAreas: [
       {
         n: '01',
-        title: 'Hărți de drum strategice',
-        body: 'De la viziune la execuție — ghidez echipele de conducere în construirea unor hărți de drum care creează claritate, aliniere și momentum.',
+        title: 'Traseul unui drum strategic',
+        body: 'De la viziune la execuție — ghidez echipele de conducere în construirea unui traseu care creează claritate, aliniere și scopuri clare.',
         href: '/ro/services#roadmap',
       },
       {
         n: '02',
         title: 'Leadership executiv',
-        body: 'Un nou set de instrumente pentru manageri — cadre practice dovedite în cinci țări și șase roluri executive în utilitățile europene.',
+        body: 'Un nou set de instrumente pentru manageri operativi și de conducere — utilizate în mai multe țări Europene în roluri diferite de conducere.',
         href: '/ro/services#leadership-on-top',
       },
       {
@@ -670,11 +670,11 @@ const ro: typeof en = {
     advisor: {
       eyebrow: 'Despre consultant',
       headline: 'O carieră construită la frontiera sectorului energetic european.',
-      body1: 'Am construit o carieră de peste 40 de ani în diferite companii din sectorul energetic — ca Director executiv la Atregenerg Kft., Director General și CEO la Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli, în rețele importante de gaz și energie electrică din România și Ungaria.',
-      body2: 'Prin A3QENERG, canalizez acum acea experiență în activitate de consultanță, programe de mentorat și perspective publicate — restituind sectorului cunoștințele acumulate.',
+      body1: 'Am construit o carieră de peste 40 de ani în diferite companii din sectorul energetic — ca Director executiv la Atreqenerg Kft., Director General și CEO la Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli, în companii de rețele de gaz și energia electrică din România și Ungaria.',
+      body2: 'Prin Atreqenerg, canalizez acum acea experiență în activitate de consultanță, programe de mentorat și perspective publicate — restituind sectorului cunoștințele acumulate.',
       cta: 'Biografie completă',
       roles: [
-        ['Director executiv', 'Atregenerg Kft.', 'Iul 2022 – Prezent'],
+        ['Director executiv', 'Atreqenerg Kft.', 'Iul 2022 – Prezent'],
         ['CEO', 'Delgaz Grid', '2017 – 2022'],
         ['CEO', 'E.ON Hungária Zrt.', '2015 – 2017'],
         ['Director General Adjunct', 'E.ON Moldova', '2004 – 2008'],
@@ -695,10 +695,10 @@ const ro: typeof en = {
   },
   about: {
     eyebrow: 'Despre',
-    headline: 'Mi-am petrecut cariera',
-    headlineEm: 'în interiorul sistemului.',
-    lead1: 'Ca Director executiv, Director General și CEO în rețele importante de gaz și energie electrică din două țări din Europa Centrală și de Est, nu am observat transformarea din exterior — am participat activ, am condus-o și am fost responsabil pentru ea.',
-    lead2: 'Astăzi, prin A3QENERG, pun acea experiență în serviciul executivilor și organizațiilor care navighează aceleași presiuni.',
+    headline: 'Am muncit în toată cariera mea',
+    headlineEm: 'în industria energetică.',
+    lead1: 'Ca Director executiv, Director General și CEO în companii de rețele de gaz și energia electrică din două țări din Europa Centrală și de Est, nu am observat transformarea din exterior — am participat activ, am condus-o și am fost responsabil pentru ea.',
+    lead2: 'Astăzi, prin Atreqenerg, pun această experiență în serviciul executivilor și organizațiilor care navighează printre provocări similare.',
     philosophy: {
       mission: { label: 'Misiune', quote: '"A oferi înapoi societăților noastre cunoștințele acumulate — contribuind la o societate mai educată și mai pregătită pentru provocările existente și viitoare."' },
       vision:  { label: 'Viziune', quote: '"A trăi într-o lume sustenabilă, rezilientă, mai puțin anxioasă, mai cooperantă și mai echitabilă."' },
@@ -717,13 +717,13 @@ const ro: typeof en = {
     bio: {
       eyebrow: 'Biografie',
       paragraphs: [
-        'Ferenc Csulak este un executiv senior în energie cu peste 40 de ani de experiență în sectorul european de gaze și electricitate. A ocupat funcții de Director executiv, Director General și CEO la Atregenerg Kft., Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli — rețele importante de gaz și energie electrică din două țări din Europa Centrală și de Est, unde a acționat nu ca observator extern, ci ca participant activ.',
+        'Ferenc Csulak este un executiv senior în energie cu peste 40 de ani de experiență în sectorul european de gaze și electricitate. A ocupat funcții de Director executiv, Director General și CEO la Atreqenerg Kft., Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli — companii de rețele de gaz și energia electrică din două țări din Europa Centrală și de Est, unde a acționat nu ca observator extern, ci ca participant activ.',
         'Cariera sa cuprinde întregul arc al transformării energetice europene: de la era privatizării din anii \'90 prin modernizarea de reglementare din anii 2000, până la dublele presiuni actuale ale decarbonizării și securității energetice.',
         'Ferenc aduce expertiză profundă în HSE, guvernanța ESG, managementul forței de muncă multigeneraționale și planificarea strategică. Vorbește fluent engleza, româna și maghiara.',
-        'Prin A3QENERG, canalizează această cunoaștere acumulată în angajamente de consultanță, programe de mentorat și comentarii strategice publicate. Abordarea sa este directă și bazată pe dovezi.',
+        'Prin Atreqenerg, canalizează această cunoaștere acumulată în angajamente de consultanță, programe de mentorat și comentarii strategice publicate. Abordarea sa este directă și bazată pe dovezi.',
       ],
       blockquote: '"Activăm specialiști din toată Europa pentru a oferi sprijin, a inspira idei noi și a obține performanțe mai bune — cu mai puțină energie, timp și resurse irosite."',
-      attribution: '— Ferenc Csulak, Fondator A3QENERG',
+      attribution: '— Ferenc Csulak, Fondator Atreqenerg',
       cta1: 'Rezervați o consultație',
       cta2: 'Citiți articolele',
     },
@@ -863,8 +863,8 @@ const ro: typeof en = {
   },
   contact: {
     eyebrow: 'Luați legătura',
-    headline: 'Să avem',
-    headlineEm: 'o conversație sinceră.',
+    headline: 'Propun o discuție',
+    headlineEm: 'scurtă, la obiect.',
     sub: 'Răspund personal la fiecare solicitare serioasă. Spuneți-mi situația dvs. și vom afla împreună dacă sunt persoana potrivită.',
     form: {
       headline: 'Trimiteți un mesaj',
@@ -892,7 +892,7 @@ const ro: typeof en = {
       emailLabel: 'Email',
       linkedInLabel: 'LinkedIn',
       addressLabel: 'Adresă',
-      address: 'A3QENERG Consulting\n8045 Isztimér, Ungaria',
+      address: 'Atreqenerg Kft.\n8045 Isztimér, Sport u. 26. sz.\nUngaria',
       languagesTitle: 'Disponibil în trei limbi',
       languagesSub: 'Engleză, română și maghiară.',
       responseQuote: '"Răspund personal la fiecare solicitare serioasă — de obicei în 48 de ore."',
