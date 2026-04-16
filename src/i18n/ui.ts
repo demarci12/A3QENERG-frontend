@@ -25,7 +25,7 @@ const en = {
     eyebrow: 'Energy Industry · Leadership · ESG',
     headline: 'Forty years building',
     headlineEm: "Europe's energy future.",
-    sub: "I advise executives and organisations on strategic transformation, leadership excellence, and ESG governance — drawing on decades at the helm of some of Europe's largest energy networks.",
+    sub: "I advise executives and organisations on strategic transformation, leadership excellence, and ESG governance — drawing on decades as an active participant in important gas & power grids across two Central and Eastern European countries.",
     cta1: 'Book a Consultation',
     cta2: 'About Ferenc →',
     stats: {
@@ -62,11 +62,11 @@ const en = {
     advisor: {
       eyebrow: 'The Advisor',
       headline: "A career built at the frontier of European energy.",
-      body1: 'I have served as General Manager and CEO across Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli — organisations serving millions of households across Romania and Hungary.',
+      body1: 'I have served as Executive Director at Atregenerg Kft., and as General Manager and CEO at Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli — building a career across important gas & power grids in Romania and Hungary.',
       body2: 'Through A3QENERG, I now channel that experience into advisory work, mentoring, and published insights — giving back the knowledge gathered over a career spent transforming organisations under pressure.',
       cta: 'Full Biography',
       roles: [
-        ['General Manager', 'Delgaz Grid', 'Apr 2022 – Present'],
+        ['Executive Director', 'Atregenerg Kft.', 'Jul 2022 – Present'],
         ['CEO', 'Delgaz Grid', '2017 – 2022'],
         ['CEO', 'E.ON Hungária Zrt.', '2015 – 2017'],
         ['Deputy General Director', 'E.ON Moldova', '2004 – 2008'],
@@ -89,7 +89,7 @@ const en = {
     eyebrow: 'About',
     headline: 'I have spent my career',
     headlineEm: 'inside the machine.',
-    lead1: "As a General Manager and CEO across some of Europe's largest energy networks, I did not observe transformation from the outside — I led it, lived it, and was accountable for it.",
+    lead1: "As a General Manager, CEO, and Executive Director across important gas & power grids in two Central and Eastern European countries, I did not observe transformation from the outside — I led it, lived it, and was accountable for it.",
     lead2: 'Today, through A3QENERG, I put that experience at the service of executives and organisations that are navigating the same pressures I know first-hand.',
     philosophy: {
       mission: { label: 'Mission', quote: '"Giving back to our societies the know-how gathered and experienced — being part of a more educated and prepared society for the existing and upcoming challenges."' },
@@ -109,7 +109,7 @@ const en = {
     bio: {
       eyebrow: 'Biography',
       paragraphs: [
-        'Ferenc Csulak is a senior energy executive with over 40 years of experience across the European gas and power sector. He has held General Manager and CEO positions at Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli — organisations collectively serving millions of customers across Romania and Hungary.',
+        'Ferenc Csulak is a senior energy executive with over 40 years of experience across the European gas and power sector. He has held executive positions — including Executive Director, General Manager, and CEO — at Atregenerg Kft., Delgaz Grid, E.ON Hungária, and E.ON Közép-dunántúli, working across important gas & power grids in two Central and Eastern European countries.',
         'His career spans the full arc of European energy transformation: from the privatisation era of the 1990s through the regulatory modernisation of the 2000s, to today\'s twin pressures of decarbonisation and energy security. He has operated in five countries, navigating distinct regulatory frameworks, cultures, and organisational contexts.',
         'Ferenc brings deep expertise in HSE and safety culture, ESG governance, multi-generational workforce management, and strategic planning. He is fluent in English, Romanian, and Hungarian — a practical advantage in Central and Eastern European markets where cultural nuance shapes outcomes.',
         'Through A3QENERG, he now channels this accumulated knowledge into advisory engagements, mentoring programmes, and published strategic commentary. His approach is direct, evidence-based, and built on the conviction that fun and genuine learning are not in opposition to high performance — they are its preconditions.',
@@ -144,7 +144,7 @@ const en = {
     discovery: {
       eyebrow: 'Start Here',
       headline: 'Book a 30-minute discovery call.',
-      body: 'A no-obligation conversation to understand your situation and explore whether there is a fit. I will be direct about what I can and cannot offer.',
+      body: 'A no-obligation conversation to understand your situation and explore whether there is a genuine fit. Here is how the process works — straightforward, with no slides and no sales pitch.',
       btn1: 'Book the Call',
       btn2: 'About Ferenc',
       steps: [
@@ -329,7 +329,7 @@ const hu: typeof en = {
     eyebrow: 'Energiaipar · Vezetés · ESG',
     headline: 'Negyven év az európai',
     headlineEm: 'energiaszektor formálásában.',
-    sub: 'Vezető vállalatoknak és szervezeteknek nyújtok tanácsadást stratégiai átalakulás, kiváló vezetés és ESG-irányítás terén — Európa legnagyobb energiahálózatainál szerzett négydekádes végrehajtói tapasztalat alapján.',
+    sub: 'Vezető vállalatoknak és szervezeteknek nyújtok tanácsadást stratégiai átalakulás, kiváló vezetés és ESG-irányítás terén — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál szerzett, több mint négydekádes aktív részvételre alapozva.',
     cta1: 'Tanácsadás foglalása',
     cta2: 'Csulák Ferencről →',
     stats: {
@@ -353,7 +353,7 @@ const hu: typeof en = {
       {
         n: '02',
         title: 'Felsővezetői fejlesztés',
-        body: 'Új eszközkészlet közép- és felsővezetők számára — öt országban és hat vezető szerepkörben bevált, gyakorlati irányítási keretrendszerek.',
+        body: 'Végigvezetem a közép- és felsővezetőket egy új eszközkészlet megszerzésén — öt országban és hat vezető szerepkörben bevált, gyakorlati irányítási keretrendszerek alapján.',
         href: '/hu/services#leadership-on-top',
       },
       {
@@ -366,11 +366,11 @@ const hu: typeof en = {
     advisor: {
       eyebrow: 'A tanácsadóról',
       headline: 'Európa energiaszektorának frontvonalán felépített pályafutás.',
-      body1: 'Vezérigazgatóként és általános igazgatóként tevékenykedtem a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál — szervezeteknél, amelyek Románia és Magyarország millió háztartását látják el.',
+      body1: 'Ügyvezető igazgatóként az Atregenerg Kft.-nél, vezérigazgatóként és általános igazgatóként a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál tevékenykedtem — pályafutásomat Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál építettem fel.',
       body2: 'Az A3QENERG keretein belül ezt a tapasztalatot tanácsadói munkába, mentorprogramokba és publikált elemzésekbe forgatom vissza.',
       cta: 'Teljes életrajz',
       roles: [
-        ['Általános igazgató', 'Delgaz Grid', '2022. ápr. – jelenleg'],
+        ['Ügyvezető igazgató', 'Atregenerg Kft.', '2022. júl. – jelenleg'],
         ['Vezérigazgató', 'Delgaz Grid', '2017 – 2022'],
         ['Vezérigazgató', 'E.ON Hungária Zrt.', '2015 – 2017'],
         ['Általános igazgató-helyettes', 'E.ON Moldova', '2004 – 2008'],
@@ -393,7 +393,7 @@ const hu: typeof en = {
     eyebrow: 'Rólam',
     headline: 'Karrieremet',
     headlineEm: 'belülről építettem fel.',
-    lead1: 'Mint Európa legnagyobb energiahálózatainak vezérigazgatója és általános igazgatója, nem kívülről figyeltem az átalakulást — én vezéreltem, megéltem, és felelős voltam érte.',
+    lead1: 'Mint Kelet-Közép-Európa két országának gáz- és villamoshálózatainál tevékenykedő ügyvezető igazgató, vezérigazgató és általános igazgató, nem kívülről figyeltem az átalakulást — aktív résztvevőként vezéreltem, megéltem, és felelős voltam érte.',
     lead2: 'Ma az A3QENERG keretein belül ezt a tapasztalatot azon vezetők és szervezetek szolgálatába állítom, akik ugyanazokkal a kihívásokkal néznek szembe.',
     philosophy: {
       mission: { label: 'Küldetés', quote: '"Visszaadni a társadalomnak az összegyűjtött és megtapasztalt tudást — hozzájárulni egy képzettebb és felkészültebb társadalomhoz a meglévő és közelgő kihívásokra."' },
@@ -413,7 +413,7 @@ const hu: typeof en = {
     bio: {
       eyebrow: 'Életrajz',
       paragraphs: [
-        'Csulák Ferenc vezető energetikai szakember, több mint 40 éves tapasztalattal az európai gáz- és villamosenergia-szektorban. Vezérigazgatói és általános igazgatói pozíciókat töltött be a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál.',
+        'Csulák Ferenc vezető energetikai szakember, több mint 40 éves tapasztalattal az európai gáz- és villamosenergia-szektorban. Ügyvezető igazgatói, vezérigazgatói és általános igazgatói pozíciókat töltött be az Atregenerg Kft.-nél, a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál nem külső szemlélőként, hanem aktív résztvevőként.',
         'Pályafutása az európai energiaátalakulás teljes ívét felöleli: az 1990-es évek privatizációs korszakától a 2000-es évek szabályozási modernizációján át a mai dekarbonizációs és energiabiztonsági kettős kihívásig. Öt országban tevékenykedett.',
         'Csulák Ferenc mély szakértelemmel rendelkezik a munkavédelmi és biztonsági kultúra, az ESG-irányítás, a többgenerációs munkaerő-menedzsment és a stratégiai tervezés terén. Folyékonyan kommunikál angolul, románul és magyarul.',
         'Az A3QENERG keretein belül ezt a felhalmozott tudást tanácsadói megbízásokba, mentorprogramokba és közzétett stratégiai elemzésekbe forgatja vissza. Megközelítése közvetlen, bizonyítékokra épülő.',
@@ -447,13 +447,13 @@ const hu: typeof en = {
     enquire: 'Érdeklődjön a programról →',
     discovery: {
       eyebrow: 'Kezdje itt',
-      headline: 'Foglaljon 30 perces fedező megbeszélést.',
-      body: 'Kötelezettségmentes megbeszélés a helyzete megismerésére és annak feltérképezésére, hogy van-e lehetséges együttműködés.',
+      headline: 'Foglaljon 20 perces első megbeszélést (discovery call).',
+      body: 'Kötelezettségmentes, 20 perces első megbeszélés a helyzete megismerésére és annak feltérképezésére, hogy van-e lehetséges együttműködés. Az alábbi lépések mentén haladunk — egyszerűen, prezentáció nélkül.',
       btn1: 'Megbeszélés foglalása',
       btn2: 'Csulák Ferencről',
       steps: [
         ['Mondja el helyzetét', 'Röviden írja le a kihívást vagy lehetőséget, amellyel szembesül.'],
-        ['Megbeszélünk', 'Egy 30 perces hívás — prezentáció nélkül. Csak őszinte párbeszéd.'],
+        ['Megbeszélünk', 'Egy 20 perces hívás — prezentáció nélkül. Csak őszinte párbeszéd.'],
         ['Egyértelmű következő lépés', 'Vagy javasolt megbízás, vagy őszinte "ez most nem illik össze".'],
       ],
     },
@@ -483,7 +483,7 @@ const hu: typeof en = {
         id: 'leadership-on-top',
         eyebrow: 'Felsővezetői csapat',
         title: 'Csúcsra való vezetés',
-        summary: 'Program közép- és felsővezetők számára, akik új eszközkészletet keresnek. Gyakorlati, terepen tesztelt irányítási technikák a teljesítmény és a csapatkultúra javításához.',
+        summary: 'Végigvezetem a közép- és felsővezetőket egy új eszközkészlet elsajátításán. Gyakorlati, terepen tesztelt irányítási technikák a teljesítmény, a döntési minőség és a csapatkultúra egyidejű fejlesztéséhez.',
         details: ['A jelenlegi vezetési stílusok és hiányosságok felmérése', 'Minden résztvevőre egyénre szabott megközelítés', 'Megvalósítási támogatás és nyomon követés'],
         duration: '3 – 6 hónap',
       },
@@ -633,7 +633,7 @@ const ro: typeof en = {
     eyebrow: 'Industria energetică · Leadership · ESG',
     headline: 'Patruzeci de ani modelând',
     headlineEm: 'viitorul energetic al Europei.',
-    sub: 'Consiliez executivi și organizații în transformare strategică, excelență în leadership și guvernanță ESG — bazat pe decenii la conducerea unor dintre cele mai mari rețele energetice din Europa.',
+    sub: 'Consiliez executivi și organizații în transformare strategică, excelență în leadership și guvernanță ESG — bazat pe decenii de participare activă în rețele importante de gaz și energie electrică din două țări din Europa Centrală și de Est.',
     cta1: 'Rezervați o consultație',
     cta2: 'Despre Ferenc →',
     stats: {
@@ -670,11 +670,11 @@ const ro: typeof en = {
     advisor: {
       eyebrow: 'Despre consultant',
       headline: 'O carieră construită la frontiera sectorului energetic european.',
-      body1: 'Am servit ca Director General și CEO la Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli — organizații care deservesc milioane de gospodării din România și Ungaria.',
+      body1: 'Am construit o carieră de peste 40 de ani în diferite companii din sectorul energetic — ca Director executiv la Atregenerg Kft., Director General și CEO la Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli, în rețele importante de gaz și energie electrică din România și Ungaria.',
       body2: 'Prin A3QENERG, canalizez acum acea experiență în activitate de consultanță, programe de mentorat și perspective publicate — restituind sectorului cunoștințele acumulate.',
       cta: 'Biografie completă',
       roles: [
-        ['Director General', 'Delgaz Grid', 'Apr 2022 – Prezent'],
+        ['Director executiv', 'Atregenerg Kft.', 'Iul 2022 – Prezent'],
         ['CEO', 'Delgaz Grid', '2017 – 2022'],
         ['CEO', 'E.ON Hungária Zrt.', '2015 – 2017'],
         ['Director General Adjunct', 'E.ON Moldova', '2004 – 2008'],
@@ -697,7 +697,7 @@ const ro: typeof en = {
     eyebrow: 'Despre',
     headline: 'Mi-am petrecut cariera',
     headlineEm: 'în interiorul sistemului.',
-    lead1: 'Ca Director General și CEO al unor dintre cele mai mari rețele energetice din Europa, nu am observat transformarea din exterior — am condus-o, am trăit-o și am fost responsabil pentru ea.',
+    lead1: 'Ca Director executiv, Director General și CEO în rețele importante de gaz și energie electrică din două țări din Europa Centrală și de Est, nu am observat transformarea din exterior — am participat activ, am condus-o și am fost responsabil pentru ea.',
     lead2: 'Astăzi, prin A3QENERG, pun acea experiență în serviciul executivilor și organizațiilor care navighează aceleași presiuni.',
     philosophy: {
       mission: { label: 'Misiune', quote: '"A oferi înapoi societăților noastre cunoștințele acumulate — contribuind la o societate mai educată și mai pregătită pentru provocările existente și viitoare."' },
@@ -717,7 +717,7 @@ const ro: typeof en = {
     bio: {
       eyebrow: 'Biografie',
       paragraphs: [
-        'Ferenc Csulak este un executiv senior în energie cu peste 40 de ani de experiență în sectorul european de gaze și electricitate. A ocupat funcții de Director General și CEO la Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli.',
+        'Ferenc Csulak este un executiv senior în energie cu peste 40 de ani de experiență în sectorul european de gaze și electricitate. A ocupat funcții de Director executiv, Director General și CEO la Atregenerg Kft., Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli — rețele importante de gaz și energie electrică din două țări din Europa Centrală și de Est, unde a acționat nu ca observator extern, ci ca participant activ.',
         'Cariera sa cuprinde întregul arc al transformării energetice europene: de la era privatizării din anii \'90 prin modernizarea de reglementare din anii 2000, până la dublele presiuni actuale ale decarbonizării și securității energetice.',
         'Ferenc aduce expertiză profundă în HSE, guvernanța ESG, managementul forței de muncă multigeneraționale și planificarea strategică. Vorbește fluent engleza, româna și maghiara.',
         'Prin A3QENERG, canalizează această cunoaștere acumulată în angajamente de consultanță, programe de mentorat și comentarii strategice publicate. Abordarea sa este directă și bazată pe dovezi.',
@@ -745,7 +745,7 @@ const ro: typeof en = {
     eyebrow: 'Lucrați cu mine',
     headline: 'Expertiză câștigată',
     headlineEm: 'pe teren.',
-    sub: 'Fiecare program pe care îl ofer este construit pe experiență trăită — nu pe teorie. Am ocupat aceste roluri și am fost responsabil pentru rezultate.',
+    sub: 'Fiecare program pe care îl ofer este construit pe expertiză autentică — nu pe teorie. Trasee strategice clare pentru nivelurile operative și executive, bazate pe roluri reale și responsabilitate reală pentru rezultate.',
     cta: 'Rezervați un apel de descoperire',
     durationLabel: 'Durată',
     enquire: 'Solicitați informații despre program →',
