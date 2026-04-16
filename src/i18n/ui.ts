@@ -231,7 +231,7 @@ const en = {
     minRead: 'min read',
     topics: 'Topics',
     authorCard: {
-      role: 'Energy & Leadership Advisor · A3QENERG',
+      role: 'Energy & Leadership Advisor · Atreqenerg',
       bio: '40 years in European energy. General Manager, Delgaz Grid. Strategic advisor on transformation, leadership, and ESG governance.',
       bioLink: 'Read full biography →',
     },
@@ -367,7 +367,7 @@ const hu: typeof en = {
       eyebrow: 'A tanácsadóról',
       headline: 'Európa energiaszektorának frontvonalán felépített pályafutás.',
       body1: 'Ügyvezető igazgatóként az Atreqenerg Kft.-nél, vezérigazgatóként és általános igazgatóként a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál tevékenykedtem — pályafutásomat Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál építettem fel.',
-      body2: 'Az A3QENERG keretein belül ezt a tapasztalatot tanácsadói munkába, mentorprogramokba és publikált elemzésekbe forgatom vissza.',
+      body2: 'Az Atreqenerg keretein belül ezt a tapasztalatot tanácsadói munkába, mentorprogramokba és publikált elemzésekbe forgatom vissza.',
       cta: 'Teljes életrajz',
       roles: [
         ['Ügyvezető igazgató', 'Atreqenerg Kft.', '2022. júl. – jelenleg'],
@@ -394,7 +394,7 @@ const hu: typeof en = {
     headline: 'Karrieremet',
     headlineEm: 'belülről építettem fel.',
     lead1: 'Mint Kelet-Közép-Európa két országának gáz- és villamoshálózatainál tevékenykedő ügyvezető igazgató, vezérigazgató és általános igazgató, nem kívülről figyeltem az átalakulást — aktív résztvevőként vezéreltem, megéltem, és felelős voltam érte.',
-    lead2: 'Ma az A3QENERG keretein belül ezt a tapasztalatot azon vezetők és szervezetek szolgálatába állítom, akik ugyanazokkal a kihívásokkal néznek szembe.',
+    lead2: 'Ma az Atreqenerg keretein belül ezt a tapasztalatot azon vezetők és szervezetek szolgálatába állítom, akik ugyanazokkal a kihívásokkal néznek szembe.',
     philosophy: {
       mission: { label: 'Küldetés', quote: '"Visszaadni a társadalomnak az összegyűjtött és megtapasztalt tudást — hozzájárulni egy képzettebb és felkészültebb társadalomhoz a meglévő és közelgő kihívásokra."' },
       vision:  { label: 'Jövőkép', quote: '"Fenntartható, ellenálló, kevésbé szorongó, kooperatívabb és igazságosabb világban élni."' },
@@ -416,7 +416,7 @@ const hu: typeof en = {
         'Csulak Ferenc vezető energetikai szakember, több mint 40 éves tapasztalattal az európai gáz- és villamosenergia-szektorban. Ügyvezető igazgatói, vezérigazgatói és általános igazgatói pozíciókat töltött be az Atreqenerg Kft.-nél, a Delgaz Gridnél, az E.ON Hungáriánál és az E.ON Közép-dunántúli Gázhálózatinál — Kelet-Közép-Európa két országának meghatározó gáz- és villamoshálózatainál nem külső szemlélőként, hanem aktív résztvevőként.',
         'Pályafutása az európai energiaátalakulás teljes ívét felöleli: az 1990-es évek privatizációs korszakától a 2000-es évek szabályozási modernizációján át a mai dekarbonizációs és energiabiztonsági kettős kihívásig. Öt országban tevékenykedett.',
         'Csulak Ferenc mély szakértelemmel rendelkezik a munkavédelmi és biztonsági kultúra, az ESG-irányítás, a többgenerációs munkaerő-menedzsment és a stratégiai tervezés terén. Folyékonyan kommunikál angolul, románul és magyarul.',
-        'Az A3QENERG keretein belül ezt a felhalmozott tudást tanácsadói megbízásokba, mentorprogramokba és közzétett stratégiai elemzésekbe forgatja vissza. Megközelítése közvetlen, bizonyítékokra épülő.',
+        'Az Atreqenerg keretein belül ezt a felhalmozott tudást tanácsadói megbízásokba, mentorprogramokba és közzétett stratégiai elemzésekbe forgatja vissza. Megközelítése közvetlen, bizonyítékokra épülő.',
       ],
       blockquote: '"Európai szakértőket mozgósítunk a támogatáshoz, az új ötletek inspirálásához, az ügyfél erősségeinek fejlesztéséhez és a jobb teljesítmény eléréséhez — kevesebb pazarolt energiával, idővel és erőforrással."',
       attribution: '— Csulak Ferenc, az Atreqenerg alapítója',
@@ -535,7 +535,7 @@ const hu: typeof en = {
     minRead: 'perc olvasás',
     topics: 'Témák',
     authorCard: {
-      role: 'Energia & Vezetői tanácsadó · A3QENERG',
+      role: 'Energia & Vezetői tanácsadó · Atreqenerg',
       bio: '40 év az európai energiaszektorban. Általános igazgató, Delgaz Grid. Stratégiai tanácsadó átalakulás, vezetés és ESG terén.',
       bioLink: 'Teljes életrajz olvasása →',
     },
@@ -671,7 +671,7 @@ const ro: typeof en = {
       eyebrow: 'Despre consultant',
       headline: 'O carieră construită la frontiera sectorului energetic european.',
       body1: 'Am construit o carieră de peste 40 de ani în diferite companii din sectorul energetic — ca Director executiv la Atreqenerg Kft., Director General și CEO la Delgaz Grid, E.ON Hungária și E.ON Közép-dunántúli, în companii de rețele de gaz și energia electrică din România și Ungaria.',
-      body2: 'Prin Atreqenerg, canalizez acum acea experiență în activitate de consultanță, programe de mentorat și perspective publicate — restituind sectorului cunoștințele acumulate.',
+      body2: 'Prin Atreqenerg, canalizez acum această experiență în activitate de consultanță, programe de mentorat și perspective publicate — restituind sectorului cunoștințele acumulate.',
       cta: 'Biografie completă',
       roles: [
         ['Director executiv', 'Atreqenerg Kft.', 'Iul 2022 – Prezent'],
@@ -738,7 +738,7 @@ const ro: typeof en = {
       headline: '40 de ani de expertiză energetică în serviciul organizației dvs.',
       sub: 'De la o singură sesiune de strategie până la un angajament de mai multe luni — găsim formatul potrivit.',
       btn1: 'Explorați serviciile',
-      btn2: 'Luați legătura',
+      btn2: 'Consultație',
     },
   },
   services: {
@@ -764,7 +764,7 @@ const ro: typeof en = {
     cta2: {
       eyebrow: 'Depășiți-vă obstacolele',
       headline: 'Programul potrivit pentru situația dvs. există. Hai să-l găsim.',
-      btn: 'Luați legătura',
+      btn: 'Consultație',
     },
     items: [
       {
@@ -839,7 +839,7 @@ const ro: typeof en = {
     minRead: 'min citire',
     topics: 'Subiecte',
     authorCard: {
-      role: 'Consultant Energie & Leadership · A3QENERG',
+      role: 'Consultant Energie & Leadership · Atreqenerg',
       bio: '40 de ani în energia europeană. Director General, Delgaz Grid. Consilier strategic în transformare, leadership și guvernanță ESG.',
       bioLink: 'Citiți biografia completă →',
     },
